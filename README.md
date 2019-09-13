@@ -1,6 +1,10 @@
-# Trabalho-Prog-Mobile
+# Trabalho-Prog-Mobile 
 
   O seguinte repositório será utilizado para o trabalho da Disciplina de Programação para Dispositivos Móveis, ministrada em 2019.2 na FACOM - UFMS.
 
+Nome do Aplicativo: Learn Cards
 
-Como trabalho prático será desenvolvido uma plataforma que ligará pessoas que estão doando qualquer tipo de alimento com pessoas que precisam dos alimentos. A plataforme irá funcionar por um aplicativo mével onde qualquer usuário poderá publicar algum alimento que tiver na sua casa disponível para doar, para qualquer pessoa que o deseje. Haverá uma lista com todos os alimentos disponíveis, com dados da pessoa, do alimento e localização. Será possível também fazer uma busca pelo mapa da cidade, que mostrará os alimentos disponíveis em alguns locais.
+Descrição Geral do Aplicativo:
+  A necessidade de buscar conhecimento é essencial em todas as fases de nossa vida, seja na escola ou faculdade, onde devemos aprender diversos assuntos, muitos dos quais nem imaginamos que vamos usar, e mais para frente, quando precisamos nos manter atualizados no mercado de trabalho com as últimas notícias e tecnologias disponíveis. Porém, nem sempre é fácil estudar, por diversas questões.
+  O Aplicativo Learn Cards será uma plataforma que busca compartilhar conhecimento por meio de "Flash Cards". Cada Flash Card possuíra uma definição, com um contexto, dentro de uma categoria de qualquer área existente. E questões para avaliar a pessoa que está estudando. O objetivo aqui será facilitar o estudo. 
+  Os Flash Cards serão criados por alunos da UFMS utilizando um sistema Web. Os alunos poderão Criar, Editar, Corrigir ou Validar cartões que estão no curso que eles fazem. Qualquer pessoa poderá utilizar o aplicativo, que será utilizado para estudar, podendo marcar que disciplinas a pessoa quer aprender, escolher um número de Flash Cards como meta diária e outros elementos para engajamento do aplicativo.
