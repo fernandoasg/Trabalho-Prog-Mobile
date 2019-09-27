@@ -1,5 +1,11 @@
 # Trabalho-Prog-Mobile 
 
+Integrantes: 
+              
+              Fernando Augusto da Silva Gallardo 
+              Cristian Rambo
+              Vitor Andrade Guidorizzi
+
   O seguinte repositório será utilizado para o trabalho da Disciplina de Programação para Dispositivos Móveis, ministrada em 2019.2 na FACOM - UFMS.
 
 Nome do Aplicativo: Learn Cards
