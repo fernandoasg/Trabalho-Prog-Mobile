@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lessonSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:textSize="15pt"
+        android:text="Nome do sub-tema"/>
+
+    <TextView
+        android:id="@+id/descriptionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/lessonSubject"
+        android:layout_marginLeft="15pt"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="Descrição"/>
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15pt"
+        android:layout_marginTop="5pt"
+        android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
+
+    <TextView
+        android:id="@+id/applicationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/descriptionText"
+        android:layout_marginLeft="15pt"
+        android:layout_marginTop="10pt"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="Aplicação"/>
+
+    <TextView
+        android:id="@+id/applicationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15pt"
+        android:layout_marginTop="5pt"
+        android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
+
+    <Button
+        android:id="@+id/questionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:background="@color/design_default_color_primary"
+        android:layout_marginTop="10pt"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:text="PERGUNTAS"/>
+</LinearLayout>
