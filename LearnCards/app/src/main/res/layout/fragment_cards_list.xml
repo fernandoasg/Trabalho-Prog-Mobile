@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textNoSubject"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recicler_view_cards"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:textAlignment="center"
-        android:textSize="15pt"
-        android:text="Nessa tela vão aparecer todos os cartões disponíveis em lista"/>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/card_item"/>
 
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
