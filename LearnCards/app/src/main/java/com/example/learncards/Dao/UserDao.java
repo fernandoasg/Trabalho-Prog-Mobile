@@ -28,4 +28,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM user ORDER BY id DESC")
     LiveData<List<User>> getAllUsers();
+
+    @Query("SELECT * FROM user")
+    List<User> getAllUsers2();
 }
