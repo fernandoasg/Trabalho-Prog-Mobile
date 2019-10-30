@@ -1,4 +1,4 @@
-package com.example.learncards;
+package com.example.learncards.Activities;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.learncards.Database.AppDatabase;
 import com.example.learncards.Entities.User;
+import com.example.learncards.R;
+import com.example.learncards.SessionManager;
 import com.example.learncards.ViewModel.UserViewModel;
 
 import java.util.List;
@@ -28,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText;
 
     private TextView errorsText;
-
 
     //TODO: deixar essa classe como static para evitar leaks na memória
     class LoginTask extends AsyncTask<Void, Void, Void> {
@@ -44,8 +45,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (user.getEmail().equals(emailText.getText().toString()) && user.getPassword().equals(passwordText.getText().toString())) {
                     Log.i("[ LOGIN ]", "Sucesso ! Logando como usuário: " + user.getName() + " / Email: " + user.getEmail());
                     errorsText.setText(null);
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);
+
+                    SessionManager sessionManager = new SessionManager(getApplicationContext());
+                    sessionManager.createSession(user.getEmail(), user.getName(), user.getId());
+
+                    Intent intent = new Intent("finish_activity");
+                    sendBroadcast(intent);
+
+                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(i);
+
+                    finish();
                     return null;
                 }
             }

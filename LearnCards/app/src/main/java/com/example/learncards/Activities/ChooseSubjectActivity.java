@@ -1,10 +1,11 @@
-package com.example.learncards;
+package com.example.learncards.Activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.learncards.R;
 
 public class ChooseSubjectActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.learncards;
+package com.example.learncards.Activities;
 
 import android.app.Application;
 import android.content.Context;
