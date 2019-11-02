@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/lessonSubject"
         android:layout_marginLeft="15pt"
+        android:layout_marginRight="15pt"
         android:textStyle="bold"
         android:textSize="20dp"
         android:text="Descrição"/>
@@ -27,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
+        android:layout_marginRight="15pt"
         android:layout_marginTop="5pt"
         android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
 
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/descriptionText"
         android:layout_marginLeft="15pt"
+        android:layout_marginRight="15pt"
         android:layout_marginTop="10pt"
         android:textStyle="bold"
         android:textSize="20dp"
@@ -46,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
+        android:layout_marginRight="15pt"
         android:layout_marginTop="5pt"
         android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
 
