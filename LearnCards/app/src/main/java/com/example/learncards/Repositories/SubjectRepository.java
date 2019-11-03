@@ -18,4 +18,8 @@ public class SubjectRepository {
         subjectDao = db.subjectDao();
         allSubjecties = db.subjectDao().getAllSubjects();
     }
+
+    public List<Subject> getAllSubjecties() {
+        return allSubjecties;
+    }
 }

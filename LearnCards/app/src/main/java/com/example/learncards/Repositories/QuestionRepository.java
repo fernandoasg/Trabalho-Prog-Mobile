@@ -18,4 +18,8 @@ public class QuestionRepository {
         questionDao = db.questioDao();
         allQuestions = questionDao.getAllQuestions();
     }
+
+    public List<Question> getAllQuestions(){
+        return allQuestions;
+    }
 }

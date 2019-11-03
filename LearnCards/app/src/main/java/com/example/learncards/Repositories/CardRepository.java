@@ -18,4 +18,8 @@ public class CardRepository {
         cardDao = db.cardDao();
         allCards = cardDao.getAllCards();
     }
+
+    public List<Card> getAllCards(){
+        return allCards;
+    }
 }
