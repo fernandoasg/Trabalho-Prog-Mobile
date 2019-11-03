@@ -11,10 +11,23 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.example.learncards.Dao.CardDao;
+import com.example.learncards.Dao.CardsDoneDao;
+import com.example.learncards.Dao.QuestionDao;
+import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Dao.UserDao;
+import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.CardsDone;
+import com.example.learncards.Entities.Question;
+import com.example.learncards.Entities.Subject;
 import com.example.learncards.Entities.User;
 
-@Database(entities = {User.class}, exportSchema = false, version = 1)
+@Database(entities = {
+            User.class,
+            Question.class,
+            Subject.class,
+            Card.class,
+            CardsDone.class}, exportSchema = false, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DBTAG = "[ DATABASE ]";
@@ -22,6 +35,11 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
     public abstract UserDao userDao();
+    public abstract SubjectDao subjectDao();
+    public abstract QuestionDao questioDao();
+    public abstract CardDao cardDao();
+    public abstract CardsDoneDao cardsDoneDao();
+
 
     public static synchronized AppDatabase getInstance(Context context){
 
