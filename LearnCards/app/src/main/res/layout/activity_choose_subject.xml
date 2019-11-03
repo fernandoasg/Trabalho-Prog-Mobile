@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subjects_recycle_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,7 +50,7 @@
             android:layout_marginEnd="30dp"
             tools:listitem="@layout/subject_item">
 
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
             android:id="@+id/button"

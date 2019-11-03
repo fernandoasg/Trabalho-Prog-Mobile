@@ -1,20 +1,18 @@
 package com.example.learncards.Activities;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v7.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.learncards.Adapters.SubjectAdapter;
 import com.example.learncards.Entities.Subject;
-import com.example.learncards.Entities.SubjectWithCards;
 import com.example.learncards.R;
 import com.example.learncards.ViewModel.SubjectViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseSubjectActivity extends AppCompatActivity {

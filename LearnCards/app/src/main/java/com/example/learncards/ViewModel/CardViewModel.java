@@ -1,10 +1,9 @@
 package com.example.learncards.ViewModel;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.annotation.NonNull;
 
-import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.Repositories.CardRepository;
 

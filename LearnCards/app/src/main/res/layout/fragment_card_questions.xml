@@ -23,7 +23,7 @@
         android:textSize="20dp"
         android:text="Aqui vai a pergunta"/>
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_margin="15dp">
@@ -68,7 +68,7 @@
                 />
         </RadioGroup>
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

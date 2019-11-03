@@ -2,7 +2,7 @@ package com.example.learncards.Activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +13,6 @@ import com.example.learncards.Database.AppDatabase;
 import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
-
-import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
