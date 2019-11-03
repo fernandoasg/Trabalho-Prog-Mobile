@@ -20,13 +20,15 @@ import com.example.learncards.Entities.CardsDone;
 import com.example.learncards.Entities.Question;
 import com.example.learncards.Entities.Subject;
 import com.example.learncards.Entities.User;
+import com.example.learncards.Entities.UserSubject;
 
 @Database(entities = {
             User.class,
             Subject.class,
             Card.class,
             Question.class,
-            CardsDone.class}, exportSchema = false, version = 2)
+            CardsDone.class,
+            UserSubject.class}, exportSchema = false, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DBTAG = "[ DATABASE ]";

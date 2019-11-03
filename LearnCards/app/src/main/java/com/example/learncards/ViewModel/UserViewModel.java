@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
 
+import com.example.learncards.Entities.Subject;
 import com.example.learncards.Entities.User;
 import com.example.learncards.Repositories.UserRepository;
 
@@ -39,5 +40,9 @@ public class UserViewModel extends AndroidViewModel {
 
     public LiveData<List<User>> getAllUsers() {
         return allUsers;
+    }
+
+    public List<Subject> getAllMySubjects(Long userId){
+        return repository.getAllMySubjects(userId);
     }
 }

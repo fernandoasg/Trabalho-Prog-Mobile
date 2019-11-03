@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.learncards.Entities.Subject;
 import com.example.learncards.Entities.User;
 
 import java.util.List;
@@ -31,4 +32,10 @@ public interface UserDao {
 
     @Query("SELECT * FROM user")
     List<User> getAllUsers2();
+
+    @Query("SELECT * FROM subject s JOIN user_subject us ON s.id == us.subject_fk" +
+            " WHERE user_fk = :userId")
+    List<Subject> getAllSubjectsFromUser(long userId);
 }
+
+//WHERE user_fk = :userId"

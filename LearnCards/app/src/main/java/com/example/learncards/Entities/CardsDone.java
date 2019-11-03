@@ -17,7 +17,6 @@ import androidx.room.PrimaryKey;
         },
         indices = {@Index("user_fk"),
                    @Index("card_fk")})
-
 public class CardsDone {
 
     @PrimaryKey(autoGenerate = true)
