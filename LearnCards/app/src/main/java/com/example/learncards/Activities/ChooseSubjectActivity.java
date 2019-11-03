@@ -28,6 +28,7 @@ public class ChooseSubjectActivity extends AppCompatActivity {
 
         subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
         allSubjects = subjectViewModel.getAllSubjects();
+        System.out.println(allSubjects.size());
 
         RecyclerView recyclerView = findViewById(R.id.subjects_recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

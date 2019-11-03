@@ -1,26 +1,41 @@
 package com.example.learncards.Repositories;
 
 import android.app.Application;
+import android.os.AsyncTask;
 
 import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Database.AppDatabase;
 import com.example.learncards.Entities.Subject;
-import com.example.learncards.Entities.SubjectWithCards;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class SubjectRepository {
 
+    private AppDatabase db;
     private SubjectDao subjectDao;
-    private List<Subject> allSubjecties;
+    private List<Subject> allSubjects;
 
     public SubjectRepository(Application application){
-        AppDatabase db = AppDatabase.getInstance(application);
+        db = AppDatabase.getInstance(application);
         subjectDao = db.subjectDao();
-        allSubjecties = db.subjectDao().getAllSubjects();
+        try {
+            allSubjects = new GetAllSubjectsAsyncTask().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Subject> getAllSubjecties() {
-        return allSubjecties;
+        return allSubjects;
+    }
+
+    private class GetAllSubjectsAsyncTask extends AsyncTask<Void, Void, List<Subject>> {
+        @Override
+        protected List<Subject> doInBackground(Void... url){
+            return subjectDao.getAllSubjects();
+        }
     }
 }
