@@ -8,15 +8,6 @@ public class Question {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
-
-    public long getCard_fk() {
-        return card_fk;
-    }
-
-    public void setCard_fk(long card_fk) {
-        this.card_fk = card_fk;
-    }
-
     private long card_fk;
     private String description;
     private String alternativeA;
@@ -26,13 +17,15 @@ public class Question {
     private String alternativeE;
     private char answer;
 
-    public Question(long i, String a, String b, String c, String d, String e, char answer){
-        this.id = i;
-        this.alternativeA = a;
-        this.alternativeB = b;
-        this.alternativeC = c;
-        this.alternativeD = d;
-        this.alternativeE = e;
+    public Question(long id, long card_fk, String description, String alternativeA, String alternativeB, String alternativeC, String alternativeD, String alternativeE, char answer) {
+        this.id = id;
+        this.card_fk = card_fk;
+        this.description = description;
+        this.alternativeA = alternativeA;
+        this.alternativeB = alternativeB;
+        this.alternativeC = alternativeC;
+        this.alternativeD = alternativeD;
+        this.alternativeE = alternativeE;
         this.answer = answer;
     }
 
@@ -53,6 +46,14 @@ public class Question {
 
     public String getAlternativeA() {
         return alternativeA;
+    }
+
+    public long getCard_fk() {
+        return card_fk;
+    }
+
+    public void setCard_fk(long card_fk) {
+        this.card_fk = card_fk;
     }
 
     public void setAlternativeA(String alternativeA) {

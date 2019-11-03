@@ -1,9 +1,11 @@
 package com.example.learncards.Entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "user")
+@Entity(tableName = "user",
+        indices = {@Index("id")})
 public class User {
 
     @PrimaryKey(autoGenerate = true)

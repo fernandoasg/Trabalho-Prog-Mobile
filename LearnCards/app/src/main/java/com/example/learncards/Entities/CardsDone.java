@@ -3,6 +3,7 @@ package com.example.learncards.Entities;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "cards_done",
@@ -13,7 +14,9 @@ import android.arch.persistence.room.PrimaryKey;
                 @ForeignKey(entity = Card.class,
                         parentColumns = "id",
                         childColumns = "card_fk")
-        })
+        },
+        indices = {@Index("user_fk"),
+                   @Index("card_fk")})
 
 public class CardsDone {
 
@@ -27,12 +30,12 @@ public class CardsDone {
     @ColumnInfo(name = "card_fk")
     private long cardFk;
 
-    public CardsDone(long id, float rating, String rating_text, long user_fk, long card_fk) {
+    public CardsDone(long id, float rating, String ratingText, long userFk, long cardFk) {
         this.id = id;
         this.rating = rating;
-        this.ratingText = rating_text;
-        this.userFk = user_fk;
-        this.cardFk = card_fk;
+        this.ratingText = ratingText;
+        this.userFk = userFk;
+        this.cardFk = cardFk;
     }
 
     public long getId() {

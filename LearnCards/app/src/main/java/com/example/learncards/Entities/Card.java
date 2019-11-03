@@ -1,12 +1,14 @@
 package com.example.learncards.Entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.Relation;
 
 import java.util.List;
 
-@Entity(tableName = "card")
+@Entity(tableName = "card",
+        indices = {@Index("id")})
 public class Card {
 
     @PrimaryKey(autoGenerate = true)
@@ -17,16 +19,13 @@ public class Card {
     private String context;
     private float rating;
 
-    @Relation(parentColumn = "id", entityColumn = "card_fk", entity = Question.class)
-    private List<Question> questions;
-
-    public Card(long i, String n, String d, String c, float r, List<Question> l){
-        this.id = i;
-        this.name = n;
-        this.description = d;
-        this.context = c;
-        this.rating = r;
-        this.questions = l;
+    public Card(long id, long subject_fk, String name, String description, String context, float rating) {
+        this.id = id;
+        this.subject_fk = subject_fk;
+        this.name = name;
+        this.description = description;
+        this.context = context;
+        this.rating = rating;
     }
 
     public long getId() {
@@ -77,11 +76,4 @@ public class Card {
         this.rating = rating;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
 }

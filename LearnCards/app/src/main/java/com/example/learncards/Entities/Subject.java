@@ -1,6 +1,7 @@
 package com.example.learncards.Entities;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.Relation;
 
@@ -14,13 +15,16 @@ public class Subject {
     private String name;
     private String subArea;
 
-    @Relation(parentColumn = "id", entityColumn = "subject_fk", entity = Card.class)
-    private List<Card> cards;
+    public Subject(long id, String name, String subArea) {
+        this.id = id;
+        this.name = name;
+        this.subArea = subArea;
+    }
 
-    public Subject(long i, String n, String s){
-        this.id = i;
-        this.name = n;
-        this.subArea = s;
+    @Ignore
+    public Subject(String name, String subArea) {
+        this.name = name;
+        this.subArea = subArea;
     }
 
     public long getId() {
@@ -45,13 +49,5 @@ public class Subject {
 
     public void setSubArea(String subArea) {
         this.subArea = subArea;
-    }
-
-    public List<Card> getCards() {
-        return cards;
-    }
-
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
     }
 }

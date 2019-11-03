@@ -24,9 +24,9 @@ import com.example.learncards.Entities.User;
 
 @Database(entities = {
             User.class,
-            Question.class,
             Subject.class,
             Card.class,
+            Question.class,
             CardsDone.class}, exportSchema = false, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -65,13 +65,19 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private UserDao userDao;
+        private SubjectDao subjectDao;
         private PopulateDbAsyncTask(AppDatabase db){
+            subjectDao = db.subjectDao();
             userDao = db.userDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             userDao.insert(new User("teste", "123@gmail.com", "123"));
+            subjectDao.insert(new Subject("Teste", "Sub-teste1"));
+            subjectDao.insert(new Subject("Teste", "Sub-teste2"));
+            subjectDao.insert(new Subject("Teste", "Sub-teste3"));
+            subjectDao.insert(new Subject("Teste", "Sub-teste4"));
             return null;
         }
     }

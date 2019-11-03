@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.Repositories.CardRepository;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public class CardViewModel extends AndroidViewModel {
 
     private CardRepository repository;
-    private List<Card> allCards;
+    private List<CardWithQuestions> allCards;
 
     public CardViewModel(@NonNull Application application){
         super(application);

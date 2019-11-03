@@ -5,6 +5,7 @@ import android.app.Application;
 import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Database.AppDatabase;
 import com.example.learncards.Entities.Subject;
+import com.example.learncards.Entities.SubjectWithCards;
 
 import java.util.List;
 
