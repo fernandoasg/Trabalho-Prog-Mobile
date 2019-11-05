@@ -2,6 +2,7 @@ package com.example.learncards.Repositories;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Database.AppDatabase;

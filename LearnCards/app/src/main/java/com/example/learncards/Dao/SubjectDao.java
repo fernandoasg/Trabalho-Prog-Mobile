@@ -17,7 +17,6 @@ public interface SubjectDao {
     @Insert
     void insert(Subject subject);
 
-
     @Query("SELECT * FROM subject ORDER BY name DESC")
     List<Subject> getAllSubjects();
 

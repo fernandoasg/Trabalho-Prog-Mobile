@@ -2,9 +2,12 @@ package com.example.learncards.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.learncards.Entities.Subject;
@@ -16,7 +19,6 @@ import java.util.List;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectHolder> {
 
     private List<Subject> subjects = new ArrayList<>();
-
 
     @NonNull
     @Override
@@ -31,6 +33,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
         Subject currentSubject = subjects.get(i);
         subjectHolder.textViewTitle.setText(currentSubject.getName());
         subjectHolder.textViewSubArea.setText(currentSubject.getSubArea());
+        subjectHolder.bind(subjects.get(i));
     }
 
     @Override
@@ -42,14 +45,38 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
         this.subjects = subjects;
     }
 
+    public ArrayList<Subject> getSelected() {
+        ArrayList<Subject> selected = new ArrayList<>();
+        for (int i = 0; i < subjects.size(); i++) {
+            if (subjects.get(i).isChecked()) {
+                selected.add(subjects.get(i));
+            }
+        }
+        return selected;
+    }
+
     class SubjectHolder extends RecyclerView.ViewHolder{
         private TextView textViewTitle;
         private TextView textViewSubArea;
+        private ImageView checkedTick;
 
-        public SubjectHolder(@NonNull View itemView) {
+        SubjectHolder(@NonNull View itemView) {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.subject_title_text);
             textViewSubArea = itemView.findViewById(R.id.sub_area_text);
+            checkedTick = itemView.findViewById(R.id.imageView);
+        }
+
+        void bind(final Subject subject) {
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    subject.setChecked(!subject.isChecked());
+                    checkedTick.setVisibility(subject.isChecked() ? View.VISIBLE : View.GONE);
+                    Log.i("SELECTED", subject.getName() + " | " + subject.getSubArea() + " -> "+subject.isChecked());
+                }
+            });
         }
     }
 }

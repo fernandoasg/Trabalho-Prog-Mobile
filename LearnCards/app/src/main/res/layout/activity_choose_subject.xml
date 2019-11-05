@@ -49,11 +49,10 @@
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="30dp"
             tools:listitem="@layout/subject_item">
-
         </androidx.recyclerview.widget.RecyclerView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -64,4 +63,5 @@
             android:textColor="@color/colorAccent"
             android:textSize="10pt"/>
     </LinearLayout>
+
 </LinearLayout>

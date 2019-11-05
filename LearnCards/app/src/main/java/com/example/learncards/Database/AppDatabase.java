@@ -31,8 +31,6 @@ import com.example.learncards.Entities.UserSubject;
             UserSubject.class}, exportSchema = false, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
-    private static final String DBTAG = "[ DATABASE ]";
-
     private static AppDatabase instance;
 
     public abstract UserDao userDao();
@@ -45,14 +43,11 @@ public abstract class AppDatabase extends RoomDatabase {
     public static synchronized AppDatabase getInstance(Context context){
 
         if(instance == null){
-            Log.i(DBTAG, "CRIANDO INSTANCIA DB");
-
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     AppDatabase.class, "app_database.db")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback).build();
         }
-
         return instance;
     }
 
@@ -75,10 +70,20 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             userDao.insert(new User("teste", "123@gmail.com", "123"));
-            subjectDao.insert(new Subject("Teste", "Sub-teste1"));
-            subjectDao.insert(new Subject("Teste", "Sub-teste2"));
-            subjectDao.insert(new Subject("Teste", "Sub-teste3"));
-            subjectDao.insert(new Subject("Teste", "Sub-teste4"));
+            subjectDao.insert(new Subject("Biologia", "Sistema Cardiovascular"));
+            subjectDao.insert(new Subject("Biologia", "Espécies"));
+
+            subjectDao.insert(new Subject("Física", "Leis de Newton"));
+            subjectDao.insert(new Subject("Física", "Resistencia do Ar"));
+
+            subjectDao.insert(new Subject("Quimica", "Reações quimicas"));
+            subjectDao.insert(new Subject("Quimica", "Atomos"));
+
+            subjectDao.insert(new Subject("Matemática", "Equações de 2nd grau"));
+            subjectDao.insert(new Subject("Matemática", "Algebra Linear"));
+
+            subjectDao.insert(new Subject("Filosofia", "Maconha I"));
+            subjectDao.insert(new Subject("Filosofia", "Marxismo II"));
             return null;
         }
     }

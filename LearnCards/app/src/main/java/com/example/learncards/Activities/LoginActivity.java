@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
             for (User user : users) {
                 if (user.getEmail().equals(emailText.getText().toString()) && user.getPassword().equals(passwordText.getText().toString())) {
-                    Log.i("[ LOGIN ]", "Sucesso ! Logando como usuário: " + user.getName() + " / Email: " + user.getEmail());
+                    Log.i("[ LOGIN ]", "Sucesso ! Logando como usuário: " + user.getName() + " | Email: " + user.getEmail());
                     errorsText.setText(null);
 
                     SessionManager sessionManager = new SessionManager(getApplicationContext());
