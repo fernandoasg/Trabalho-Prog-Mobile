@@ -2,7 +2,6 @@ package com.example.learncards.Repositories;
 
 import android.app.Application;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Database.AppDatabase;
@@ -13,30 +12,42 @@ import java.util.concurrent.ExecutionException;
 
 public class SubjectRepository {
 
-    private AppDatabase db;
     private SubjectDao subjectDao;
-    private List<Subject> allSubjects;
 
     public SubjectRepository(Application application){
-        db = AppDatabase.getInstance(application);
-        subjectDao = db.subjectDao();
-        try {
-            allSubjects = new GetAllSubjectsAsyncTask().execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        AppDatabase appDatabase = AppDatabase.getInstance(application);
+        subjectDao = appDatabase.subjectDao();
     }
 
     public List<Subject> getAllSubjecties() {
-        return allSubjects;
+        try {
+            return new GetAllSubjectsTask().execute().get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    private class GetAllSubjectsAsyncTask extends AsyncTask<Void, Void, List<Subject>> {
+    public List<Subject> getAllNonSelectedSubjects(long userID) {
+        try {
+            return new GetAllNonSelectedSubjectsTask().execute(userID).get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private class GetAllSubjectsTask extends AsyncTask<Void, Void, List<Subject>> {
         @Override
         protected List<Subject> doInBackground(Void... url){
             return subjectDao.getAllSubjects();
+        }
+    }
+
+    private class GetAllNonSelectedSubjectsTask extends AsyncTask<Long, Void, List<Subject>> {
+        @Override
+        protected List<Subject> doInBackground(Long... userID){
+            return subjectDao.getAllSubjectsNotSelectedByUser(userID[0]);
         }
     }
 }

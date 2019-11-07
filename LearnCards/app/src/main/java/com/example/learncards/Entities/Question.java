@@ -8,6 +8,7 @@ public class Question {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
+
     private long card_fk;
     private String description;
     private String alternativeA;

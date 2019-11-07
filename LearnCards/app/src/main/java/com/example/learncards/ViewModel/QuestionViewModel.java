@@ -11,12 +11,11 @@ import java.util.List;
 
 public class QuestionViewModel extends AndroidViewModel {
 
-    private QuestionRepository repository;
     private List<Question> allQuestions;
 
     public QuestionViewModel(@NonNull Application application){
         super(application);
-        repository = new QuestionRepository(application);
+        QuestionRepository repository = new QuestionRepository(application);
         allQuestions = repository.getAllQuestions();
     }
 }

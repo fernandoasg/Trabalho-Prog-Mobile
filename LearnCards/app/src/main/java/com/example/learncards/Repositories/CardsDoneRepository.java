@@ -10,12 +10,11 @@ import java.util.List;
 
 public class CardsDoneRepository {
 
-    private CardsDoneDao cardsDoneDao;
     private List<CardsDone> allCardsDone;
 
     public CardsDoneRepository(Application application, long userId){
         AppDatabase db = AppDatabase.getInstance(application);
-        cardsDoneDao = db.cardsDoneDao();
+        CardsDoneDao cardsDoneDao = db.cardsDoneDao();
         allCardsDone = cardsDoneDao.getAllCardsDoneOfUser(userId);
     }
 

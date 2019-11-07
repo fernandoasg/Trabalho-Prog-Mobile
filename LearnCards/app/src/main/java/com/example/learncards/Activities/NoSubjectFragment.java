@@ -15,14 +15,12 @@ import com.example.learncards.R;
 
 public class NoSubjectFragment extends Fragment {
 
-    private Button chooseSubjectsButton;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_no_subject, container, false);
 
-        chooseSubjectsButton = v.findViewById(R.id.chooseSubjectsButton);
+        Button chooseSubjectsButton = v.findViewById(R.id.chooseSubjectsButton);
         chooseSubjectsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

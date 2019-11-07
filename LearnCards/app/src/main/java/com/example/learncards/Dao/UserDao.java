@@ -27,15 +27,9 @@ public interface UserDao {
     @Query("DELETE FROM user")
     void deleteAllUsers();
 
-    @Query("SELECT * FROM user ORDER BY id DESC")
-    LiveData<List<User>> getAllUsers();
-
     @Query("SELECT * FROM user")
-    List<User> getAllUsers2();
+    List<User> getAllUsers();
 
-    @Query("SELECT * FROM subject s JOIN user_subject us ON s.id == us.subject_fk" +
-            " WHERE user_fk = :userId")
+    @Query("SELECT * FROM subject JOIN user_subject ON subject.id == subject_fk WHERE user_fk = :userId")
     List<Subject> getAllSubjectsFromUser(long userId);
 }
-
-//WHERE user_fk = :userId"

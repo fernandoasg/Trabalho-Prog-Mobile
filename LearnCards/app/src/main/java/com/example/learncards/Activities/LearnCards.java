@@ -5,6 +5,7 @@ import android.content.Context;
 
 /**
  * Classe criada para acessar o contexto da aplicação de métodos estaticos
+ * TODO UTILIZAR ISSO
  */
 public class LearnCards extends Application {
 

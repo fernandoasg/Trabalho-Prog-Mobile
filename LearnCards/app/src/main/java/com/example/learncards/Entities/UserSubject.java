@@ -7,16 +7,25 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user_subject",
         foreignKeys = {
-                @ForeignKey(entity = User.class,
+                @ForeignKey(
+                        entity = User.class,
                         parentColumns = "id",
                         childColumns = "user_fk"),
-                @ForeignKey(entity = Subject.class,
+
+                @ForeignKey(
+                        entity = Subject.class,
                         parentColumns = "id",
                         childColumns = "subject_fk")
         },
-        indices = {@Index("user_fk"),
+        indices = {
+                @Index("user_fk"),
                 @Index("subject_fk")})
 public class UserSubject {
+
+    public UserSubject(long user_fk, long subject_fk) {
+        this.user_fk = user_fk;
+        this.subject_fk = subject_fk;
+    }
 
     @PrimaryKey(autoGenerate = true)
     private long id;

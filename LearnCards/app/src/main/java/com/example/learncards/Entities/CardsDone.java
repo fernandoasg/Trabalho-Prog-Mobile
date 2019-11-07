@@ -21,11 +21,13 @@ public class CardsDone {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
+
     private float rating;
     private String ratingText;
 
     @ColumnInfo(name = "user_fk")
     private long userFk;
+
     @ColumnInfo(name = "card_fk")
     private long cardFk;
 

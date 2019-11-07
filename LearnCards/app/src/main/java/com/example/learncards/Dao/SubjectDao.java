@@ -20,6 +20,12 @@ public interface SubjectDao {
     @Query("SELECT * FROM subject ORDER BY name DESC")
     List<Subject> getAllSubjects();
 
+    @Query("SELECT * FROM subject JOIN user_subject ON subject_fk = subject.id WHERE user_fk = :userID")
+    List<Subject> getAllSubjectsSelectedByUser(long userID);
+
+    @Query("SELECT * FROM subject WHERE subject.id not in (select subject_fk from user_subject where user_fk = :userId)")
+    List<Subject> getAllSubjectsNotSelectedByUser(long userId);
+
     @Transaction
     @Query("SELECT * FROM subject ORDER BY name DESC")
     List<SubjectWithCards> getAllSubjectsWithCards();

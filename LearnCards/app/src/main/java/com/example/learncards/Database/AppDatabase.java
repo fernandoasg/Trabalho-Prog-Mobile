@@ -1,20 +1,19 @@
 package com.example.learncards.Database;
 
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.room.Dao;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
-import android.util.Log;
 
 import com.example.learncards.Dao.CardDao;
 import com.example.learncards.Dao.CardsDoneDao;
 import com.example.learncards.Dao.QuestionDao;
 import com.example.learncards.Dao.SubjectDao;
 import com.example.learncards.Dao.UserDao;
+import com.example.learncards.Dao.UserSubjectDao;
 import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardsDone;
 import com.example.learncards.Entities.Question;
@@ -28,7 +27,9 @@ import com.example.learncards.Entities.UserSubject;
             Card.class,
             Question.class,
             CardsDone.class,
-            UserSubject.class}, exportSchema = false, version = 2)
+            UserSubject.class
+}, exportSchema = false, version = 2)
+
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -38,7 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract QuestionDao questioDao();
     public abstract CardDao cardDao();
     public abstract CardsDoneDao cardsDoneDao();
-
+    public abstract UserSubjectDao userSubjectDao();
 
     public static synchronized AppDatabase getInstance(Context context){
 
@@ -62,9 +63,11 @@ public abstract class AppDatabase extends RoomDatabase {
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private UserDao userDao;
         private SubjectDao subjectDao;
+        private CardDao cardDao;
         private PopulateDbAsyncTask(AppDatabase db){
             subjectDao = db.subjectDao();
             userDao = db.userDao();
+            cardDao = db.cardDao();
         }
 
         @Override
@@ -84,6 +87,11 @@ public abstract class AppDatabase extends RoomDatabase {
 
             subjectDao.insert(new Subject("Filosofia", "Maconha I"));
             subjectDao.insert(new Subject("Filosofia", "Marxismo II"));
+
+            cardDao.insert(new Card(1,1, "Sistema Cardiovascular ENEM", "Perguntas sobre o sistema cardiovascular p/ o ENEM", "contexto ?", 5));
+            cardDao.insert(new Card(2,2, "Espécies reino animal", "Perguntas espécies do reino animal", "contexto ?", 4));
+            cardDao.insert(new Card(3,3, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 3));
+            cardDao.insert(new Card(4,4, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 2));
             return null;
         }
     }

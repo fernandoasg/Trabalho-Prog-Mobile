@@ -1,9 +1,11 @@
 package com.example.learncards.Dao;
 
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 
 import java.util.List;
@@ -13,9 +15,12 @@ public interface CardDao {
 
     @Transaction
     @Query("SELECT * FROM card ORDER BY name DESC")
-    List<CardWithQuestions> getAllCards();
+    List<Card> getAllCards();
 
     @Transaction
     @Query("SELECT * FROM card WHERE subject_fk = :subjectId")
     List<CardWithQuestions> loadAllCardsOfSubject(long subjectId);
+
+    @Insert
+    void insert(Card card);
 }

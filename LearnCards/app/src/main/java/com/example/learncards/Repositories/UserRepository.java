@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 public class UserRepository {
     private UserDao userDao;
-    private LiveData<List<User>> allUsers;
+    private List<User> allUsers;
     private List<Subject> mySubjects;
 
     public UserRepository(Application application){
@@ -55,7 +55,7 @@ public class UserRepository {
         return mySubjects;
     }
 
-    public LiveData<List<User>> getAllUsers(){
+    public List<User> getAllUsers(){
         return  allUsers;
     }
 

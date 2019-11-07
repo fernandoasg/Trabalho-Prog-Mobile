@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.learncards.Activities.MainActivity;
+import com.example.learncards.Entities.User;
 
 import java.util.HashMap;
 
@@ -28,7 +29,6 @@ public class SessionManager {
         editor = sharedPreferences.edit();
     }
 
-    // AKA LOGIN
     public void createSession(String email, String name, long userID) {
         editor.putString(EMAIL, email);
         editor.putString(NAME, name);

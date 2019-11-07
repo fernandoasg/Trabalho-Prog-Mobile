@@ -1,6 +1,7 @@
 package com.example.learncards.Activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -10,10 +11,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.learncards.Adapters.CardAdapter;
+import com.example.learncards.Database.AppDatabase;
+import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.Subject;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
+import com.example.learncards.ViewModel.CardViewModel;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +33,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
+        List<Card> allCards = cardViewModel.getAllCards();
+        CardAdapter adapter = new CardAdapter();
+        adapter.setCards(allCards);
+
+//        TODO PASSAR O ADAPTER ALL CARDS PARA O FRAGMENT CARD LIST
+//        RecyclerView recyclerView = findViewById(R.id.subjects_recycle_view);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setHasFixedSize(true);
+//
+//        recyclerView.setAdapter(adapter);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -36,9 +58,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null) {
-            boolean hasSubjects = hasSubjects();
-            if (hasSubjects) {
+        if (savedInstanceState == null) {
+            if (getUserSubjects() != null && !getUserSubjects().isEmpty()) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
                         new CardsListFragment()).commit();
             } else {
@@ -51,32 +72,32 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawer(GravityCompat.START);
-        }else{
+        else
             super.onBackPressed();
-        }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
+
+            //TODO FIX: No adapter attached; skipping layout
             case R.id.nav_cards:
-                boolean hasSubjects = hasSubjects();
-                if(hasSubjects) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
-                             new CardsListFragment()).commit();
-                }else{
-                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
-                             new NoSubjectFragment()).commit();
+                if (getUserSubjects() != null && !getUserSubjects().isEmpty()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new CardsListFragment()).commit();
+                } else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new NoSubjectFragment()).commit();
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 break;
+
             case R.id.nav_user_profile:
-               getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
-                            new ProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
+                        new ProfileFragment()).commit();
                 drawer.closeDrawer(GravityCompat.START);
                 break;
+
             case R.id.nav_sair:
                 SessionManager sessionManager = new SessionManager(getApplicationContext());
                 sessionManager.logout();
@@ -91,8 +112,25 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    // Retorna se o usuário tem algum assunto selecionado ou não
-    private boolean hasSubjects(){
-        return false;
+    private List<Subject> getUserSubjects() {
+        try {
+            return new GetUserSelectedSubjectsTask().execute().get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    class GetUserSelectedSubjectsTask extends AsyncTask<Void, Void, List<Subject>> {
+
+        @Override
+        protected List<Subject> doInBackground(Void... voids) {
+            SessionManager sessionManager = new SessionManager(getApplicationContext());
+            AppDatabase appDatabase = AppDatabase.getInstance(LearnCards.getAppContext());
+
+            return appDatabase.subjectDao().getAllSubjectsSelectedByUser(
+                    (long) sessionManager.getUser().get("ID")
+            );
+        }
     }
 }

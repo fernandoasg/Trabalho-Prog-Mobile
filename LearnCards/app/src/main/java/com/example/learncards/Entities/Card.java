@@ -3,7 +3,6 @@ package com.example.learncards.Entities;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
 @Entity(tableName = "card",
         indices = {@Index("id")})

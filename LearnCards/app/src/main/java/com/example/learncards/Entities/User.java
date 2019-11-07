@@ -4,8 +4,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user",
-        indices = {@Index("id")})
+@Entity(tableName = "user", indices = {@Index("id")})
 public class User {
 
     @PrimaryKey(autoGenerate = true)

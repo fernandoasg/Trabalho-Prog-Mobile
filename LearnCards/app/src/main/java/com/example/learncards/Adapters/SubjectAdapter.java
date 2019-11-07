@@ -3,7 +3,6 @@ package com.example.learncards.Adapters;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +73,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectH
                 public void onClick(View view) {
                     subject.setChecked(!subject.isChecked());
                     checkedTick.setVisibility(subject.isChecked() ? View.VISIBLE : View.GONE);
-                    Log.i("SELECTED", subject.getName() + " | " + subject.getSubArea() + " -> "+subject.isChecked());
                 }
             });
         }
