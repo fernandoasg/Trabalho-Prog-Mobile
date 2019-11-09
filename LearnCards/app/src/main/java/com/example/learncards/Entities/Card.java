@@ -4,13 +4,16 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "card",
-        indices = {@Index("id")})
-public class Card {
+import java.io.Serializable;
+
+@Entity(tableName = "card", indices = {@Index("id")})
+public class Card implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
     private long subject_fk;
+    private long user_fk;
+
     private String name;
     private String description;
     private String context;
@@ -71,6 +74,14 @@ public class Card {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public long getUser_fk() {
+        return user_fk;
+    }
+
+    public void setUser_fk(long user_fk) {
+        this.user_fk = user_fk;
     }
 
 }

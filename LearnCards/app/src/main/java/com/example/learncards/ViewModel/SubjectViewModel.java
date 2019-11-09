@@ -13,23 +13,19 @@ import java.util.List;
 
 public class SubjectViewModel extends AndroidViewModel {
 
-    private List<Subject> allSubjects;
-    private List<Subject> allNonSelectedSubjects;
+    private SubjectRepository subjectRepository;
 
-    public SubjectViewModel(@NonNull Application application){
+    public SubjectViewModel(@NonNull Application application) {
         super(application);
-        SessionManager sm = new SessionManager(application);
-        long userID = (long) sm.getUser().get("ID");
-        SubjectRepository repository = new SubjectRepository(application);
-        allSubjects = repository.getAllSubjecties();
-        allNonSelectedSubjects = repository.getAllNonSelectedSubjects(userID);
+        subjectRepository = new SubjectRepository(application);
     }
 
-    public List<Subject> getAllSubjects(){
-        return allSubjects;
+    //TODO FAZER RETORNAR, para isso criar o metodo no repositorio e o metodo no subjectDAO: subjectRepository.getUserSubjects(userID);
+    public List<Subject> getUserSubjects(long userID) {
+        return null;
     }
 
-    public List<Subject> getAllNonSelectedSubjects(){
-        return allNonSelectedSubjects;
+    public List<Subject> getAllNonSelectedSubjects(long userID) {
+        return subjectRepository.getAllNonSelectedSubjects(userID);
     }
 }

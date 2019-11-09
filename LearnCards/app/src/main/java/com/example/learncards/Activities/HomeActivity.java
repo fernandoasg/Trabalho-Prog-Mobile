@@ -12,14 +12,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
-
-import com.example.learncards.Adapters.CardAdapter;
 import com.example.learncards.Database.AppDatabase;
-import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.Subject;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
-import com.example.learncards.ViewModel.CardViewModel;
+import com.example.learncards.ViewModel.SubjectViewModel;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
@@ -28,23 +25,20 @@ import java.util.concurrent.ExecutionException;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private List<Subject> userSubjects;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
-        List<Card> allCards = cardViewModel.getAllCards();
-        CardAdapter adapter = new CardAdapter();
-        adapter.setCards(allCards);
+        SubjectViewModel subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
 
-//        TODO PASSAR O ADAPTER ALL CARDS PARA O FRAGMENT CARD LIST
-//        RecyclerView recyclerView = findViewById(R.id.subjects_recycle_view);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setHasFixedSize(true);
-//
-//        recyclerView.setAdapter(adapter);
+        sessionManager = new SessionManager(getApplicationContext());
+        long userID = (long) sessionManager.getUser().get("ID");
+
+        userSubjects = subjectViewModel.getUserSubjects(userID);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,9 +53,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            if (getUserSubjects() != null && !getUserSubjects().isEmpty()) {
+            if (userSubjects != null && !userSubjects.isEmpty()) {
+                //TODO SUBJECT LIST FRAGMENT AQUI
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
-                        new CardsListFragment()).commit();
+                        new NoSubjectFragment()).commit();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
                         new NoSubjectFragment()).commit();
@@ -82,10 +77,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
 
-            //TODO FIX: No adapter attached; skipping layout
             case R.id.nav_cards:
                 if (getUserSubjects() != null && !getUserSubjects().isEmpty()) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new CardsListFragment()).commit();
+                    //TODO SUBJECT LIST FRAGMENT AQUI
+                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new NoSubjectFragment()).commit();
                 } else {
                     getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new NoSubjectFragment()).commit();
                 }
@@ -99,7 +94,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_sair:
-                SessionManager sessionManager = new SessionManager(getApplicationContext());
                 sessionManager.logout();
 
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);

@@ -15,7 +15,7 @@ public class CardRepository {
     private CardDao cardDao;
     private List<Card> allCards;
 
-    public CardRepository(Application application){
+    public CardRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         cardDao = db.cardDao();
         try {
@@ -25,14 +25,31 @@ public class CardRepository {
         }
     }
 
-    public List<Card> getAllCards(){
+    public List<Card> getAllCards() {
         return allCards;
+    }
+
+    public List<Card> getUserCards(long userID) {
+        try {
+            return new GetUserCardsTask().execute(userID).get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private class GetAllCardsTask extends AsyncTask<Void, Void, List<Card>> {
         @Override
-        protected List<Card> doInBackground(Void... url){
+        protected List<Card> doInBackground(Void... url) {
             return cardDao.getAllCards();
+        }
+    }
+
+    private class GetUserCardsTask extends AsyncTask<Long, Void, List<Card>> {
+        @Override
+        protected List<Card> doInBackground(Long... longs) {
+            // longs[0] = userID
+            return cardDao.getUserCards(longs[0]);
         }
     }
 

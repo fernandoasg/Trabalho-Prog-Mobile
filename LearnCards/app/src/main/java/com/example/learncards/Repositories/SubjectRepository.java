@@ -19,7 +19,7 @@ public class SubjectRepository {
         subjectDao = appDatabase.subjectDao();
     }
 
-    public List<Subject> getAllSubjecties() {
+    public List<Subject> getAllSubjects() {
         try {
             return new GetAllSubjectsTask().execute().get();
         } catch (ExecutionException | InterruptedException e) {

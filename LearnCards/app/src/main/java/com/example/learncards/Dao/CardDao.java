@@ -18,6 +18,10 @@ public interface CardDao {
     List<Card> getAllCards();
 
     @Transaction
+    @Query("SELECT * FROM card WHERE user_fk = :user_fk")
+    List<Card> getUserCards(long user_fk);
+
+    @Transaction
     @Query("SELECT * FROM card WHERE subject_fk = :subjectId")
     List<CardWithQuestions> loadAllCardsOfSubject(long subjectId);
 

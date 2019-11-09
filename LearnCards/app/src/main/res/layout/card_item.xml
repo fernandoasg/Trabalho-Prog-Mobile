@@ -16,14 +16,14 @@
             android:id="@+id/text_view_card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Text title"
+            android:text="Card Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             />
         <TextView
             android:id="@+id/text_view_card_subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="assunto do cartão"
+            android:text="Card Subject"
             android:layout_below="@id/text_view_card_title"/>
     </RelativeLayout>
 

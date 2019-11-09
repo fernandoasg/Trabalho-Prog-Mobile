@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.learncards.Activities.MainActivity;
-import com.example.learncards.Entities.User;
 
 import java.util.HashMap;
 

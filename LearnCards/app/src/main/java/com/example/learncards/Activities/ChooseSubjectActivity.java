@@ -3,6 +3,7 @@ package com.example.learncards.Activities;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,6 +25,8 @@ import java.util.List;
 
 public class ChooseSubjectActivity extends AppCompatActivity {
 
+    private static final String TAG = "[Choose_Subject_Act]";
+
     private SubjectAdapter adapter;
 
     @Override
@@ -33,8 +36,11 @@ public class ChooseSubjectActivity extends AppCompatActivity {
 
         Button btnConfirmar = findViewById(R.id.btnConfirmar);
 
+        SessionManager sessionManager = new SessionManager(this);
+        long userID = (long) sessionManager.getUser().get("ID");
+
         SubjectViewModel subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
-        List<Subject> allSubjects = subjectViewModel.getAllNonSelectedSubjects();
+        List<Subject> allSubjects = subjectViewModel.getAllNonSelectedSubjects(userID);
 
         RecyclerView recyclerView = findViewById(R.id.subjects_recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,9 +74,13 @@ public class ChooseSubjectActivity extends AppCompatActivity {
             SessionManager sessionManager = new SessionManager(getApplicationContext());
             AppDatabase mydb = AppDatabase.getInstance(LearnCards.getAppContext());
             long userID = (long) sessionManager.getUser().get("ID");
+            String userName = (String) sessionManager.getUser().get("NAME");
 
             if (adapter.getSelected().size() > 0) {
                 for (int i = 0; i < adapter.getSelected().size(); i++) {
+                    Log.i(TAG, "------------------> doInBackground: Saving Selected Subject: "
+                            + adapter.getSelected().get(i).getSubArea() + "| Subarea " + adapter.getSelected().get(i).getSubArea() +
+                            " to user " + userName);
                     mydb.userSubjectDao().insert(
                             new UserSubject(userID, adapter.getSelected().get(i).getId()));
                 }
