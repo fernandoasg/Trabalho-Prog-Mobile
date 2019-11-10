@@ -110,7 +110,7 @@ public abstract class AppDatabase extends RoomDatabase {
             cardDao.insert(new Card(5,4, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 0));
             cardDao.insert(new Card(6,5, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 0));
 
-            questionDao.insert(new Question(1, 1, "O que é uma Notificação",
+            questionDao.insert(new Question(1, 1, "O que é uma Notificação?",
                     "É uma mensagem que pode ser exibida ao usuário fora da IU do aplicativo",
                     "É um texto sms que o usuário recebe",
                     "É um vídeo informativo que o usuário pode receber a qualquer momento",

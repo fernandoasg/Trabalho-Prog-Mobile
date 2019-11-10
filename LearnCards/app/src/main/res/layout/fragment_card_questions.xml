@@ -74,16 +74,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
-        <Button
-            android:id="@+id/previousQuestionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:background="@color/design_default_color_primary"
-            android:layout_gravity="center"
-            android:layout_marginRight="25dp"
-            android:visibility="invisible"
-            android:text="ANTERIOR"/>
 
         <Button
             android:id="@+id/nextQuestionButton"

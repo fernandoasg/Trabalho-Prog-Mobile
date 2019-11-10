@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
@@ -14,12 +17,16 @@ import com.example.learncards.ViewModel.CardViewModel;
 
 public class DoingCardActivity extends AppCompatActivity {
 
-    private CardWithQuestions card;
+    ProgressBar progressBar;
+    private ImageButton closeCardButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doing_card);
+
+        progressBar = findViewById(R.id.progressBar);
+        closeCardButton = findViewById(R.id.closeCardButton);
 
         Bundle bundle = getIntent().getExtras();
         long cardId = 0;
@@ -29,14 +36,21 @@ public class DoingCardActivity extends AppCompatActivity {
             cardId = bundle.getLong("cardId");
         }
 
-        CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
-        card = cardViewModel.getCard(cardId);
-
         Bundle args = new Bundle();
         args.putLong("cardId", cardId);
         Fragment cardLessonFragment = new CardLessonFragment();
         cardLessonFragment.setArguments(args);
         getSupportFragmentManager().beginTransaction().replace(R.id.card_fragment_container,
                 cardLessonFragment).commit();
+    }
+
+    public void setProgressBar(int value){
+        int current = progressBar.getProgress();
+        current += value;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            progressBar.setProgress(current, true);
+        }else{
+            progressBar.setProgress(current);
+        }
     }
 }

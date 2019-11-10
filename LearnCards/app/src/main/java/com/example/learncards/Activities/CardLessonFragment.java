@@ -1,5 +1,6 @@
 package com.example.learncards.Activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,6 @@ import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.R;
 import com.example.learncards.ViewModel.CardViewModel;
-
-import org.w3c.dom.Text;
 
 public class CardLessonFragment extends Fragment {
 
@@ -58,15 +57,23 @@ public class CardLessonFragment extends Fragment {
         setElementsContent(card.card);
 
         final long finalCardId = cardId;
+        final int stepAmount = 100/(card.questions.size() + 1);
+
         questionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Activity activity = getActivity();
+                if(activity instanceof DoingCardActivity)
+                    ((DoingCardActivity) activity).setProgressBar(stepAmount);
+
                 Bundle args = new Bundle();
                 args.putLong("cardId", finalCardId);
-                Fragment cardLessonFragment = new CardLessonFragment();
-                cardLessonFragment.setArguments(args);
+                args.putInt("stepAmount", stepAmount);
+                Fragment questionsFragment = new QuestionsFragment();
+                questionsFragment.setArguments(args);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.card_fragment_container,
-                        cardLessonFragment).commit();
+                        questionsFragment).commit();
             }
         });
 
