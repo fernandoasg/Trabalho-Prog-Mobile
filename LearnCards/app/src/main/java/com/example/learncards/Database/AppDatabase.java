@@ -64,15 +64,19 @@ public abstract class AppDatabase extends RoomDatabase {
         private UserDao userDao;
         private SubjectDao subjectDao;
         private CardDao cardDao;
+        private QuestionDao questionDao;
         private PopulateDbAsyncTask(AppDatabase db){
             subjectDao = db.subjectDao();
             userDao = db.userDao();
             cardDao = db.cardDao();
+            questionDao = db.questioDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             userDao.insert(new User("teste", "123@gmail.com", "123"));
+            subjectDao.insert(new Subject("Programação para Dispositivos Móveis", "Notificação"));
+
             subjectDao.insert(new Subject("Biologia", "Sistema Cardiovascular"));
             subjectDao.insert(new Subject("Biologia", "Espécies"));
 
@@ -88,10 +92,39 @@ public abstract class AppDatabase extends RoomDatabase {
             subjectDao.insert(new Subject("Filosofia", "Maconha I"));
             subjectDao.insert(new Subject("Filosofia", "Marxismo II"));
 
-            cardDao.insert(new Card(1,1, "Sistema Cardiovascular ENEM", "Perguntas sobre o sistema cardiovascular p/ o ENEM", "contexto ?", 5));
-            cardDao.insert(new Card(2,2, "Espécies reino animal", "Perguntas espécies do reino animal", "contexto ?", 4));
-            cardDao.insert(new Card(3,3, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 3));
-            cardDao.insert(new Card(4,4, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 2));
+            cardDao.insert(new Card(1, 1, "O que é uma Notificação",
+                    "Uma notificação é uma mensagem que pode ser exibida ao usuário fora da IU normal do aplicativo\n" +
+                            "A notificação aparece primeiro como um ícone na área de notificação\n" +
+                            "Para ver os detalhes da notificação, o usuário abre a gaveta de notificação\n" +
+                            "A área de notificação e a gaveta de notificação podem ser visualizadas pelo usuário a qualquer momento\n",
+                    "Podemos uma notificação para lembrar os usuários de fazer algo, para avisar que algo aconteceu, como o recebimento de um e-mail ou uma promoção ativa no aplicativo", 0));
+            cardDao.insert(new Card(2, 1, "Ações de Notificação",
+                    "Deve-se adicionar pelo menos uma ação à notificação\n" +
+                            "Uma ação permite que os usuários direcionem-se diretamente da notificação para uma Activity\n" +
+                            "Onde podem visualizar um ou mais eventos ou realizar outros trabalhos\n" +
+                            "Deve-se sempre definir a ção que será ativada quando o usuário clicar na notificação\n" +
+                            "Geralmente, esta ação abre uma Activity no aplicativo\n",
+                    "Caso o usuário receba uma notificação de um email que foi recebido, a ação de clicar na notificação pode, por exemplo, abrir o aplicativo de email na Activity em que é mostrado o email com mais detalhes", 0));
+            cardDao.insert(new Card(3,2, "Sistema Cardiovascular ENEM", "Perguntas sobre o sistema cardiovascular p/ o ENEM", "contexto ?", 0));
+            cardDao.insert(new Card(4,3, "Espécies reino animal", "Perguntas espécies do reino animal", "contexto ?", 0));
+            cardDao.insert(new Card(5,4, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 0));
+            cardDao.insert(new Card(6,5, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 0));
+
+            questionDao.insert(new Question(1, 1, "O que é uma Notificação",
+                    "É uma mensagem que pode ser exibida ao usuário fora da IU do aplicativo",
+                    "É um texto sms que o usuário recebe",
+                    "É um vídeo informativo que o usuário pode receber a qualquer momento",
+                    "É uma forma do usuário desbloquear o celular",
+                    "É uma mensagem que o usuário só pode acessar entrando nos aplicativos",
+                    'a'));
+            questionDao.insert(new Question(2, 1, "Podemos utilizar notificações para as seguintes ações, exceto:",
+                    "Avisar a chegada de um e-mail",
+                    "Mostrar uma mensagem de recordação para o usuário",
+                    "Mostrar que o motorista do Uber está chegando",
+                    "Tirar foto de forma mais rápida",
+                    "Mostrar as últimas mensagens recebidas do WhatsApp",
+                    'd'));
+
             return null;
         }
     }

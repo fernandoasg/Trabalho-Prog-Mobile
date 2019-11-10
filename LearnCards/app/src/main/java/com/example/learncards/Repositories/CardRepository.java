@@ -48,6 +48,15 @@ public class CardRepository {
         return null;
     }
 
+    public CardWithQuestions getCard(long cardId){
+        try{
+            return new GetCard().execute(cardId).get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private class GetAllCardsTask extends AsyncTask<Void, Void, List<Card>> {
         @Override
         protected List<Card> doInBackground(Void... url) {
@@ -67,6 +76,13 @@ public class CardRepository {
         @Override
         protected  List<CardWithQuestions> doInBackground(Long... longs){
             return cardDao.loadAllCardsOfSubject(longs[0]);
+        }
+    }
+
+    private class GetCard extends  AsyncTask<Long, Void, CardWithQuestions>{
+        @Override
+        protected CardWithQuestions doInBackground(Long... longs){
+            return cardDao.loadCard(longs[0]);
         }
     }
 

@@ -33,4 +33,8 @@ public class CardViewModel extends AndroidViewModel {
     public List<CardWithQuestions>  getCardsFromMySubjects(long subjectId){
         return repository.getCardsFromMySubjects(subjectId);
     }
+
+    public CardWithQuestions getCard(long cardId){
+        return repository.getCard(cardId);
+    }
 }
