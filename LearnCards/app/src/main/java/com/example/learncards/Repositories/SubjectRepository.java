@@ -37,6 +37,15 @@ public class SubjectRepository {
         return null;
     }
 
+    public List<Subject> getAllUserSubjects(long userID){
+        try{
+            return new GetAllUserSubjectsTask().execute(userID).get();
+        }catch(ExecutionException | InterruptedException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private class GetAllSubjectsTask extends AsyncTask<Void, Void, List<Subject>> {
         @Override
         protected List<Subject> doInBackground(Void... url){
@@ -48,6 +57,13 @@ public class SubjectRepository {
         @Override
         protected List<Subject> doInBackground(Long... userID){
             return subjectDao.getAllSubjectsNotSelectedByUser(userID[0]);
+        }
+    }
+
+    private class GetAllUserSubjectsTask extends AsyncTask<Long, Void, List<Subject>> {
+        @Override
+        protected List<Subject> doInBackground(Long... userID){
+            return subjectDao.getAllSubjectsSelectedByUser(userID[0]);
         }
     }
 }

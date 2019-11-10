@@ -3,6 +3,7 @@ package com.example.learncards.Activities;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -54,9 +55,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             if (userSubjects != null && !userSubjects.isEmpty()) {
-                //TODO SUBJECT LIST FRAGMENT AQUI
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
-                        new NoSubjectFragment()).commit();
+                        new CardsListFragment()).commit();
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container,
                         new NoSubjectFragment()).commit();

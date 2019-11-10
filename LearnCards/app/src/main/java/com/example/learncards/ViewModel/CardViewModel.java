@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.annotation.NonNull;
 
 import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.Repositories.CardRepository;
 
 import java.util.List;
@@ -27,5 +28,9 @@ public class CardViewModel extends AndroidViewModel {
 
     public List<Card> getUserCards(long userID) {
         return repository.getUserCards(userID);
+    }
+
+    public List<CardWithQuestions>  getCardsFromMySubjects(long subjectId){
+        return repository.getCardsFromMySubjects(subjectId);
     }
 }

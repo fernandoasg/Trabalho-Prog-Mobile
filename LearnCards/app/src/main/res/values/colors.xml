@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FDFDFD</color>
     <color name="transparent">#00000000</color>
+    <color name="cardview_header">#7755ef</color>
 </resources>

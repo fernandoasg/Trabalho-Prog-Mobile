@@ -1,6 +1,7 @@
 package com.example.learncards.Entities;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -14,6 +15,8 @@ public class Card implements Serializable {
     private long subject_fk;
     private long user_fk;
 
+    @Ignore
+    private String subjectName;
     private String name;
     private String description;
     private String context;
@@ -42,6 +45,14 @@ public class Card implements Serializable {
 
     public void setSubject_fk(long subject_fk) {
         this.subject_fk = subject_fk;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public String getName() {

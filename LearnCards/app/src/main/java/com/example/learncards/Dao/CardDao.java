@@ -25,6 +25,10 @@ public interface CardDao {
     @Query("SELECT * FROM card WHERE subject_fk = :subjectId")
     List<CardWithQuestions> loadAllCardsOfSubject(long subjectId);
 
+    @Transaction
+    @Query("SELECT * FROM card WHERE id = :cardId")
+    CardWithQuestions loadCard(long cardId);
+
     @Insert
     void insert(Card card);
 }

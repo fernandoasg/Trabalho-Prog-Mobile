@@ -28,7 +28,7 @@ import com.example.learncards.Entities.UserSubject;
             Question.class,
             CardsDone.class,
             UserSubject.class
-}, exportSchema = false, version = 2)
+}, exportSchema = false, version = 3)
 
 public abstract class AppDatabase extends RoomDatabase {
 

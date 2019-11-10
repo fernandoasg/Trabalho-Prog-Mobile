@@ -18,6 +18,7 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private Button loginButton;
     private EditText emailText;
     private EditText passwordText;
 
@@ -34,11 +35,12 @@ public class LoginActivity extends AppCompatActivity {
 
         errorsText = findViewById(R.id.textErrors);
 
-        Button loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new LoginTask().execute();
+                LoginTask loginTask = new LoginTask();
+                loginTask.execute();
             }
         });
     }

@@ -22,7 +22,7 @@ public class SubjectViewModel extends AndroidViewModel {
 
     //TODO FAZER RETORNAR, para isso criar o metodo no repositorio e o metodo no subjectDAO: subjectRepository.getUserSubjects(userID);
     public List<Subject> getUserSubjects(long userID) {
-        return null;
+        return subjectRepository.getAllUserSubjects(userID);
     }
 
     public List<Subject> getAllNonSelectedSubjects(long userID) {

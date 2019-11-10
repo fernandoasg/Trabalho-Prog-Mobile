@@ -12,16 +12,17 @@ import android.widget.TextView;
 
 import com.example.learncards.Activities.DoingCardActivity;
 import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.R;
 
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
 
-    private List<Card> cards;
+    private List<CardWithQuestions> cards;
     private Context context;
 
-    public CardAdapter(List<Card> cards, Context context) {
+    public CardAdapter(List<CardWithQuestions> cards, Context context) {
         this.context = context;
         this.cards = cards;
     }
@@ -36,9 +37,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CardHolder cardHolder, int i) {
-        Card currentCard = cards.get(i);
-        cardHolder.textViewTitle.setText(currentCard.getName());
-        cardHolder.textViewSubject.setText(String.valueOf(currentCard.getSubject_fk()));
+        CardWithQuestions currentCard = cards.get(i);
+        cardHolder.textViewTitle.setText(currentCard.card.getName());
+        cardHolder.textViewSubject.setText(String.valueOf(currentCard.card.getSubjectName()));
         cardHolder.bind(cards.get(i));
     }
 
@@ -57,13 +58,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
             textViewSubject = itemView.findViewById(R.id.text_view_card_subject);
         }
 
-        void bind(final Card card) {
+        void bind(final CardWithQuestions card) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DoingCardActivity.class);
-                    intent.putExtra("Card" , card);
+                    intent.putExtra("cardId" , card.card.getId());
+                    //intent.putExtra("Questions", card.questions);
                     context.startActivity(intent);
                 }
             });
