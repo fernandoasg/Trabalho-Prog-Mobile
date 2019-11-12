@@ -37,6 +37,7 @@ public class QuestionsFragment extends Fragment {
     private int currentStep = 0;
     private int lastStep = 0;
     private int currentQuestion = 0;
+    private long cardId = 0;
 
     @Nullable
     @Override
@@ -54,7 +55,6 @@ public class QuestionsFragment extends Fragment {
         nextFinishButton = view.findViewById(R.id.nextQuestionButton);
 
         Bundle bundle = getArguments();
-        long cardId = 0;
         int stepAmount = 0;
         if(bundle == null){
             cardId = -1;
@@ -100,17 +100,19 @@ public class QuestionsFragment extends Fragment {
     }
 
     private void showRatingScreen(){
-        System.out.println("Mostra a tela de avaliar a cartão");
-        System.out.println("Mostra a tela de avaliar a cartão");
-        System.out.println("Mostra a tela de avaliar a cartão");
-        System.out.println("Mostra a tela de avaliar a cartão");
+        Bundle args = new Bundle();
+        args.putLong("cardId", cardId);
+        Fragment questionsFragment = new CardRatingFragment();
+        questionsFragment.setArguments(args);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.card_fragment_container,
+                questionsFragment).commit();
     }
 
     private void checkStepAndChosseQuestion(){
         if(currentStep > lastStep){
             showRatingScreen();
             return;
-        }else if(currentStep == lastStep-1){
+        }else if(currentStep == lastStep){
             nextFinishButton.setText("Finalizar");
         }
 

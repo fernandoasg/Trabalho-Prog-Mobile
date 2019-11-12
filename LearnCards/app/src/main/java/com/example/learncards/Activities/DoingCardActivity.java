@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
@@ -52,5 +53,9 @@ public class DoingCardActivity extends AppCompatActivity {
         }else{
             progressBar.setProgress(current);
         }
+    }
+
+    public void hideCloseCardButton(){
+        closeCardButton.setVisibility(View.GONE);
     }
 }

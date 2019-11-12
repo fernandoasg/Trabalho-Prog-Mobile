@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -7,82 +8,80 @@
         android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Pergunta 1"
         android:textAlignment="center"
-        android:textSize="15pt"
-        android:text="Pergunta 1"/>
+        android:textSize="15pt" />
 
     <TextView
         android:id="@+id/questionDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/lessonSubject"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="15pt"
-        android:textStyle="bold"
+        android:layout_marginRight="20dp"
+        android:text="Aqui vai a pergunta"
         android:textSize="20dp"
-        android:text="Aqui vai a pergunta"/>
+        android:textStyle="bold" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp">
-        
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:id="@+id/answerA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alternativa A"
                 android:layout_margin="5dp"
-                />
+                android:text="Alternativa A" />
+
             <RadioButton
                 android:id="@+id/answerB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alternativa B"
                 android:layout_margin="5dp"
-                />
+                android:text="Alternativa B" />
+
             <RadioButton
                 android:id="@+id/answerC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alternativa C"
                 android:layout_margin="5dp"
-                />
+                android:text="Alternativa C" />
+
             <RadioButton
                 android:id="@+id/answerD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alternativa D"
                 android:layout_margin="5dp"
-                />
+                android:text="Alternativa D" />
+
             <RadioButton
                 android:id="@+id/answerE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alternativa E"
                 android:layout_margin="5dp"
-                />
+                android:text="Alternativa E" />
         </RadioGroup>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/nextQuestionButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:background="@color/design_default_color_primary"
+        android:text="PRÓXIMA"
+        android:textColor="@color/colorAccent" />
 
-        <Button
-            android:id="@+id/nextQuestionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:background="@color/design_default_color_primary"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:text="PRÓXIMA"/>
-    </LinearLayout>
 </LinearLayout>
