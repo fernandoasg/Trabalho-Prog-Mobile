@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Alternativa A" />
 
             <RadioButton
@@ -48,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Alternativa B" />
 
             <RadioButton
@@ -55,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Alternativa C" />
 
             <RadioButton
@@ -62,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Alternativa D" />
 
             <RadioButton
@@ -69,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:buttonTint="@color/colorPrimary"
                 android:text="Alternativa E" />
         </RadioGroup>
 
