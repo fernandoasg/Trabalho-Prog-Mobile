@@ -14,7 +14,9 @@ import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,42 +41,58 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoginTask loginTask = new LoginTask();
-                loginTask.execute();
+                String email = emailText.getText().toString();
+                String senha = passwordText.getText().toString();
+                if (email != null && senha != null) {
+                    errorsText.setText(null);
+
+                    List<String> loginESenha = new ArrayList<>();
+                    loginESenha.add(email);
+                    loginESenha.add(senha);
+
+                    try {
+                        String result = new LoginTask().execute(loginESenha).get();
+
+                        if(result.equals("logado")){
+                            Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(i);
+                        }else{
+                            errorsText.setText("Email e/ou senha incorreto(s)!");
+                        }
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    errorsText.setText("Digite o email e a senha.");
+                }
             }
         });
     }
 
-    class LoginTask extends AsyncTask<Void, Void, Void> {
+    class LoginTask extends AsyncTask<List<String>, Void, String> {
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(List<String>... list) {
 
             AppDatabase mydb = AppDatabase.getInstance(LearnCards.getAppContext());
 
             List<User> users = mydb.userDao().getAllUsers();
-
+            String email = list[0].get(0);
+            String senha = list[0].get(1);
+            System.out.println(email + "  " + senha);
             for (User user : users) {
-                if (user.getEmail().equals(emailText.getText().toString()) && user.getPassword().equals(passwordText.getText().toString())) {
-                    errorsText.setText(null);
+                if (user.getEmail().equals(email) && user.getPassword().equals(senha)) {
 
                     SessionManager sessionManager = new SessionManager(getApplicationContext());
                     sessionManager.createSession(user.getEmail(), user.getName(), user.getId());
 
-                    Intent intent = new Intent("finish_activity");
-                    sendBroadcast(intent);
-
-                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(i);
-
-                    finish();
-                    return null;
+                    return "logado";
                 }
             }
 
-            errorsText.setText("Usuário ou senha incorreto !");
-
-            return null;
+            return "login-invalido";
         }
     }
 }
