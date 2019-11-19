@@ -1,13 +1,17 @@
 package com.example.learncards.Activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +42,8 @@ public class QuestionsFragment extends Fragment {
     private int lastStep = 0;
     private int currentQuestion = 0;
     private long cardId = 0;
+
+    final Handler handler = new Handler();
 
     @Nullable
     @Override
@@ -82,10 +88,16 @@ public class QuestionsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 checkAnswer();
-                currentStep += 1;
-                currentQuestion += 1;
-                checkStepAndChosseQuestion();
-                increaseProgressBar(finalStepAmount);
+                nextFinishButton.setActivated(false);
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        currentStep += 1;
+                        currentQuestion += 1;
+                        checkStepAndChosseQuestion();
+                    }
+                }, 3000);
             }
         });
 
@@ -97,6 +109,17 @@ public class QuestionsFragment extends Fragment {
         System.out.println("Verificar se acertou ou errou");
         System.out.println("Verificar se acertou ou errou");
         System.out.println("Verificar se acertou ou errou");
+        ShowResult("Mostra se acertou ou errou");
+    }
+
+    private void ShowResult(String message){
+        Context context = getView().getContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.show();
     }
 
     private void showRatingScreen(){
@@ -115,13 +138,15 @@ public class QuestionsFragment extends Fragment {
         }else if(currentStep == lastStep){
             nextFinishButton.setText("Finalizar");
         }
+        nextFinishButton.setActivated(true);
 
         loadQuestions();
     }
 
     private void loadQuestions(){
         Question question = questions.get(currentQuestion);
-        questionText.setText("Pergunta " + currentQuestion+1);
+        int numeroAtual = currentQuestion + 1;
+        questionText.setText("Pergunta " + numeroAtual);
         questionDescription.setText(question.getDescription());
         answerARadio.setText(question.getAlternativeA());
         answerBRadio.setText(question.getAlternativeB());
