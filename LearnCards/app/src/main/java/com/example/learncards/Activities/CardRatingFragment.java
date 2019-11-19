@@ -50,6 +50,7 @@ public class CardRatingFragment extends Fragment {
 
                 Intent i = new Intent(view.getContext(), HomeActivity.class);
                 startActivity(i);
+                getActivity().finish();
             }
         });
 

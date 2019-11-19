@@ -96,6 +96,7 @@ public class QuestionsFragment extends Fragment {
                         currentStep += 1;
                         currentQuestion += 1;
                         checkStepAndChosseQuestion();
+                        increaseProgressBar(finalStepAmount);
                     }
                 }, 3000);
             }
