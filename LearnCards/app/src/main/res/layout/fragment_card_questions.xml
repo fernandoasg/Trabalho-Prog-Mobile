@@ -33,6 +33,7 @@
         android:layout_margin="15dp">
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -50,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa B" />
+                android:text="Alternativa B"
+                android:textColor="@color/colorGray" />
 
             <RadioButton
                 android:id="@+id/answerC"
