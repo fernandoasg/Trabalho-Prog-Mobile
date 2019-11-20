@@ -19,6 +19,7 @@ import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.R;
 import com.example.learncards.ViewModel.CardViewModel;
+import com.example.learncards.ViewModel.CardsDoneViewModel;
 
 public class DoingCardActivity extends AppCompatActivity {
 

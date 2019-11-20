@@ -7,16 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.learncards.Entities.Card;
+import com.example.learncards.Entities.CardsDone;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
+import com.example.learncards.ViewModel.CardsDoneViewModel;
 
 public class CardRatingFragment extends Fragment {
 
+    private CardsDoneViewModel cardsDoneViewModel;
+    private TextView userCommentText;
+    private RatingBar ratingBar;
     private Button finishButton;
 
     private SessionManager sessionManager;
@@ -27,6 +36,10 @@ public class CardRatingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_card_rating, container, false);
 
         finishButton = view.findViewById(R.id.finishButton);
+        userCommentText = view.findViewById(R.id.comentario);
+        ratingBar = view.findViewById(R.id.ratingBar);
+
+        cardsDoneViewModel = ViewModelProviders.of(this).get(CardsDoneViewModel.class);
 
         Activity activity = getActivity();
         if(activity instanceof DoingCardActivity)
@@ -47,13 +60,17 @@ public class CardRatingFragment extends Fragment {
             public void onClick(View view) {
 
                 // TODO Salvar que fez a aula, a nota e o comentário
+                float numStars = ratingBar.getNumStars();
+                String userComment = userCommentText.getText().toString();
+
+                CardsDone cardsDone = new CardsDone(numStars, userComment, userID, cardId);
+                cardsDoneViewModel.saveCardDone(cardsDone);
 
                 Intent i = new Intent(view.getContext(), HomeActivity.class);
                 startActivity(i);
                 getActivity().finish();
             }
         });
-
 
         return view;
     }
