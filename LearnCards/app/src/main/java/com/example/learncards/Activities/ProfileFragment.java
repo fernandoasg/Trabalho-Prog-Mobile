@@ -13,12 +13,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 
 import java.util.HashMap;
 
 public class ProfileFragment extends Fragment {
+    TextView nameToSet, emailToSet;
+    User usuario;
 
     @Nullable
     @Override
