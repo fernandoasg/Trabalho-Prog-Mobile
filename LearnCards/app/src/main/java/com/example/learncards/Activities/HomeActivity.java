@@ -79,8 +79,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_cards:
                 if (getUserSubjects() != null && !getUserSubjects().isEmpty()) {
-                    //TODO SUBJECT LIST FRAGMENT AQUI
-                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new NoSubjectFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new CardsListFragment()).commit();
                 } else {
                     getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new NoSubjectFragment()).commit();
                 }

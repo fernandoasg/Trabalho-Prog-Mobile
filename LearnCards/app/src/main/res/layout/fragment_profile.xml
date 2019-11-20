@@ -2,14 +2,67 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="161dp"
+        android:layout_height="140dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/ic_launcher_round" />
+
     <TextView
-        android:id="@+id/textNoSubject"
+        android:id="@+id/textUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="217dp"
+        android:layout_marginEnd="4dp"
+        android:text="Nome do Usuário"
+        android:paddingLeft="20dp"
+        android:textSize="15pt" />
+
+    <TextView
+        android:id="@+id/textUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="2dp"
+        android:paddingLeft="20dp"
+        android:text="Email do Usuario"
+        android:textSize="15pt" />
+
+    <TextView
+        android:id="@+id/textUserID"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="25dp"
+        android:text="ID"
         android:textAlignment="center"
-        android:textSize="15pt"
-        android:text="Tela de perfil do usuário"/>
+        android:textSize="15pt" />
+
+    <Button
+        android:id="@+id/buttonAlterarCredenciais"
+        android:layout_width="166dp"
+        android:layout_height="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="73dp"
+        android:text="Alterar Credenciais" />
 
 
 </RelativeLayout>
