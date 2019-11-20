@@ -20,7 +20,6 @@ import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button loginButton;
     private EditText emailText;
     private EditText passwordText;
 
@@ -37,13 +36,14 @@ public class LoginActivity extends AppCompatActivity {
 
         errorsText = findViewById(R.id.textErrors);
 
-        loginButton = findViewById(R.id.loginButton);
+        Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String email = emailText.getText().toString();
                 String senha = passwordText.getText().toString();
-                if (email != null && senha != null) {
+                if (!email.equals("") && !senha.equals("")) {
                     errorsText.setText(null);
 
                     List<String> loginESenha = new ArrayList<>();
@@ -51,17 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                     loginESenha.add(senha);
 
                     try {
-                        String result = new LoginTask().execute(loginESenha).get();
-
-                        if(result.equals("logado")){
+                        if(new LoginTask().execute(loginESenha).get()){
                             Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(i);
                         }else{
                             errorsText.setText("Email e/ou senha incorreto(s)!");
                         }
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
+                    } catch (ExecutionException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }else{
@@ -71,28 +67,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    class LoginTask extends AsyncTask<List<String>, Void, String> {
+    class LoginTask extends AsyncTask<List<String>, Void, Boolean> {
 
         @Override
-        protected String doInBackground(List<String>... list) {
+        protected Boolean doInBackground(List<String>... list) {
 
             AppDatabase mydb = AppDatabase.getInstance(LearnCards.getAppContext());
 
             List<User> users = mydb.userDao().getAllUsers();
             String email = list[0].get(0);
             String senha = list[0].get(1);
-            System.out.println(email + "  " + senha);
             for (User user : users) {
                 if (user.getEmail().equals(email) && user.getPassword().equals(senha)) {
 
                     SessionManager sessionManager = new SessionManager(getApplicationContext());
                     sessionManager.createSession(user.getEmail(), user.getName(), user.getId());
-
-                    return "logado";
+                    return true;
                 }
             }
-
-            return "login-invalido";
+            return false;
         }
     }
 }

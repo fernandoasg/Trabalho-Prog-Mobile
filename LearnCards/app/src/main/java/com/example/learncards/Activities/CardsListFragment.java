@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.learncards.Adapters.CardAdapter;
-import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.Entities.Subject;
 import com.example.learncards.R;
