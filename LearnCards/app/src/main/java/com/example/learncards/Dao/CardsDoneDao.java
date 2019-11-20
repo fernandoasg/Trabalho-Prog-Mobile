@@ -8,7 +8,7 @@ import com.example.learncards.Entities.CardsDone;
 import java.util.List;
 
 @Dao
-public interface CardsDoneDao {
+public interface CardsDoneDao extends BaseDao<CardsDone>{
 
     @Query("SELECT * FROM cards_done WHERE user_fk = :userId")
     List<CardsDone> getAllCardsDoneOfUser(long userId);

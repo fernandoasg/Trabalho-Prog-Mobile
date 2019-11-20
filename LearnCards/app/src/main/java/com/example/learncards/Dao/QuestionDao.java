@@ -11,16 +11,7 @@ import com.example.learncards.Entities.Question;
 import java.util.List;
 
 @Dao
-public interface QuestionDao {
-
-    @Insert
-    void insert(Question question);
-
-    @Update
-    void update(Question question);
-
-    @Delete
-    void delete(Question question);
+public interface QuestionDao extends BaseDao<Question>{
 
     @Query("DELETE FROM question")
     void deleteAllQuestions();

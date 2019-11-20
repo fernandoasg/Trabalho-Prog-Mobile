@@ -11,7 +11,7 @@ import com.example.learncards.Entities.CardWithQuestions;
 import java.util.List;
 
 @Dao
-public interface CardDao {
+public interface CardDao extends BaseDao<Card> {
 
     @Transaction
     @Query("SELECT * FROM card ORDER BY name DESC")
@@ -28,7 +28,4 @@ public interface CardDao {
     @Transaction
     @Query("SELECT * FROM card WHERE id = :cardId")
     CardWithQuestions loadCard(long cardId);
-
-    @Insert
-    void insert(Card card);
 }

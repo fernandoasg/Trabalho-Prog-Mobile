@@ -1,6 +1,5 @@
 package com.example.learncards.Dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,16 +12,7 @@ import com.example.learncards.Entities.User;
 import java.util.List;
 
 @Dao
-public interface UserDao {
-
-    @Insert
-    void insert(User user);
-
-    @Update
-    void update(User user);
-
-    @Delete
-    void delete(User user);
+public interface UserDao extends BaseDao<User>{
 
     @Query("DELETE FROM user")
     void deleteAllUsers();

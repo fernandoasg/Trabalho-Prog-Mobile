@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="340dp"
@@ -46,9 +47,9 @@
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/email_icon"
             android:text="Email"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            app:srcCompat="@drawable/email_icon" />
 
         <TextView
             android:id="@+id/textUserEmail"
@@ -57,26 +58,47 @@
             android:layout_marginLeft="43dp"
             android:layout_marginTop="25dp"
             android:layout_toRightOf="@id/Email"
-            android:textSize="24dp"
-            android:text="Email do usuário" />
+            android:text="Email do usuário"
+            android:textSize="24dp" />
 
-        <TextView
-            android:id="@+id/textUserID"
-            android:layout_width="157dp"
+
+        <LinearLayout
+            android:id="@+id/idLinearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_below="@id/textUserEmail"
             android:layout_marginTop="20dp"
-            android:text="ID"
-            android:layout_below="@id/Email"
-            android:textSize="15pt" />
+            android:orientation="horizontal"
+            android:layout_gravity="top">
+
+            <TextView
+                android:id="@+id/userID"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.5"
+                android:text="@string/ID"
+                android:textSize="15pt" />
+
+            <TextView
+                android:id="@+id/textUserID"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="id do usuário"
+                android:textSize="15pt" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/idLinearLayout"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
-            android:layout_below="@id/textUserID"
-            android:layout_marginTop="20dp">
-
+            android:layout_gravity="top">
             <Button
                 android:id="@+id/buttonAlterarCredenciais"
                 android:layout_width="20dp"
@@ -85,11 +107,11 @@
                 android:text="Alterar Credenciais" />
 
             <Button
-            android:id="@+id/buttonInviteFriends"
-            android:layout_width="20dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.5"
-            android:text="Convidar amigo" />
+                android:id="@+id/buttonInviteFriends"
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.5"
+                android:text="Convidar amigo" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

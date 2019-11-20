@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 
@@ -36,7 +34,9 @@ public class ProfileFragment extends Fragment {
 
         userNameText.setText((String) user.get("NAME"));
         userEmailText.setText( (String) user.get("EMAIL"));
-        userIDText.setText("User ID:" +((long) user.get("ID")));
+        long userID = (long)user.get("ID");
+        String stringUserID = Long.toString(userID);
+        userIDText.setText(stringUserID);
 
         Button alterarButton = view.findViewById(R.id.buttonAlterarCredenciais);
         alterarButton.setOnClickListener(new View.OnClickListener() {
@@ -51,15 +51,11 @@ public class ProfileFragment extends Fragment {
         buttonInviteFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    //Cria o gerador do AlertDialog
                     AlertDialog alerta;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    //define o titulo
                     builder.setTitle("not implemented");
-                    //define a mensagem
                     builder.setMessage("Função ainda não implementada");
-                    //define um botão como positivo
 
                     alerta = builder.create();
                     alerta.show();
