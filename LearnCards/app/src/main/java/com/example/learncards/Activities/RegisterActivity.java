@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.learncards.Database.AppDatabase;
+import com.example.learncards.EmailValidator;
 import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
@@ -49,8 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                         );
 
 
-                if(!isValidEmail(dados.email)){
-
+                if(!EmailValidator.isValidEmail(dados.email)){
                     AlertDialog alerta;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
@@ -77,10 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isValidEmail(String email) {
-        Pattern pattern = Patterns.EMAIL_ADDRESS;
-        return pattern.matcher(email).matches();
-    }
 
     class RegisterTask extends AsyncTask<RegisterTaskParam, Void, Void> {
 
@@ -99,8 +95,8 @@ public class RegisterActivity extends AppCompatActivity {
                     dados.senha
                 );
 
-            appDatabase.userDao().insert(user);
-            sessionManager.createSession(user.getEmail(), user.getName(), user.getId());
+            long idAtual = appDatabase.userDao().insert(user);
+            sessionManager.createSession(user.getEmail(), user.getName(), idAtual);
 
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
