@@ -1,5 +1,6 @@
 package com.example.learncards.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.learncards.Adapters.CardAdapter;
 import com.example.learncards.Entities.CardWithQuestions;
@@ -28,7 +30,7 @@ public class CardsListFragment extends Fragment {
 
     private List<CardWithQuestions> userCards;
     private SessionManager sessionManager;
-
+    private ImageButton chooseSubjectsPlusButton;
 
     @Nullable
     @Override
@@ -38,6 +40,7 @@ public class CardsListFragment extends Fragment {
         userCards = new ArrayList<>();
 
         RecyclerView recyclerView = view.findViewById(R.id.recicler_view_cards);
+        chooseSubjectsPlusButton = view.findViewById(R.id.chooseSubjectsPlusButton);
         sessionManager = new SessionManager(getActivity().getApplicationContext());
         long userID = (long) sessionManager.getUser().get("ID");
 
@@ -59,7 +62,14 @@ public class CardsListFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
+        chooseSubjectsPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChooseSubjectActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
-
 }
