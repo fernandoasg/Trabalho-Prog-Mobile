@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText;
 
     private TextView errorsText;
-
+    private AppDatabase mydb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.passwordText);
 
         errorsText = findViewById(R.id.textErrors);
+
+        mydb = AppDatabase.getInstance(LearnCards.getAppContext());
 
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         if(new LoginTask().execute(loginESenha).get()){
                             Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
                         }else{
                             errorsText.setText("Email e/ou senha incorreto(s)!");
@@ -71,8 +74,6 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(List<String>... list) {
-
-            AppDatabase mydb = AppDatabase.getInstance(LearnCards.getAppContext());
 
             List<User> users = mydb.userDao().getAllUsers();
             String email = list[0].get(0);

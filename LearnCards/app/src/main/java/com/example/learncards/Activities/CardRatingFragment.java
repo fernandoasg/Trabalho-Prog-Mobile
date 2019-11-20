@@ -59,7 +59,6 @@ public class CardRatingFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // TODO Salvar que fez a aula, a nota e o comentário
                 float numStars = ratingBar.getNumStars();
                 String userComment = userCommentText.getText().toString();
 
@@ -67,8 +66,8 @@ public class CardRatingFragment extends Fragment {
                 cardsDoneViewModel.saveCardDone(cardsDone);
 
                 Intent i = new Intent(view.getContext(), HomeActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
-                getActivity().finish();
             }
         });
 

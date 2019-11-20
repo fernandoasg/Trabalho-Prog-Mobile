@@ -65,7 +65,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DoingCardActivity.class);
                     intent.putExtra("cardId" , card.card.getId());
-                    //intent.putExtra("Questions", card.questions);
                     context.startActivity(intent);
                 }
             });

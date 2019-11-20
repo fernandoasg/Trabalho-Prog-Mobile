@@ -179,7 +179,7 @@ public class QuestionsFragment extends Fragment {
             }else{
                 answerARadio.setTextColor(Color.RED);
             }
-        }else if(op == 'B'){
+        }else if(op == 'b'){
             if(certo){
                 answerBRadio.setTextColor(Color.GREEN);
             }else{
