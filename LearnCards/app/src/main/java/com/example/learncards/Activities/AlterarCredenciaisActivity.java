@@ -55,23 +55,23 @@ public class AlterarCredenciaisActivity extends AppCompatActivity {
             SessionManager sessionManager = new SessionManager(getApplicationContext());
             long userID = (long) sessionManager.getUser().get("ID");
 
-            if (editSenha.getText().toString().equals(editSenhaConf.getText().toString())) {
-
-                // TODO VER COMO ATUALIZAR O USUARIO USANDO O ROOM
-                User user = new User(
-                        editNome.getText().toString(),
-                        editEmail.getText().toString(),
-                        editSenha.getText().toString()
-                );
-
-                appDatabase.userDao().update(user);
-
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-
-                Log.i("SADASDASDASASD", "doInBackground: --------------------------");
-                finish();
-            }
+//            if (editSenha.getText().toString().equals(editSenhaConf.getText().toString())) {
+//
+//                // TODO VER COMO ATUALIZAR O USUARIO USANDO O ROOM
+//                User user = new User(
+//                        editNome.getText().toString(),
+//                        editEmail.getText().toString(),
+//                        editSenha.getText().toString()
+//                );
+//
+//                appDatabase.userDao().update(user);
+//
+//                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                startActivity(intent);
+//
+//                Log.i("SADASDASDASASD", "doInBackground: --------------------------");
+//                finish();
+//            }
             return null;
         }
     }
