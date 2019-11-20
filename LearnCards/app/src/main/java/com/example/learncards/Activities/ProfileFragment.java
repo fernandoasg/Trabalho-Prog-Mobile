@@ -51,15 +51,11 @@ public class ProfileFragment extends Fragment {
         buttonInviteFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    //Cria o gerador do AlertDialog
                     AlertDialog alerta;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    //define o titulo
                     builder.setTitle("not implemented");
-                    //define a mensagem
                     builder.setMessage("Função ainda não implementada");
-                    //define um botão como positivo
 
                     alerta = builder.create();
                     alerta.show();
