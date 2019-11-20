@@ -1,27 +1,26 @@
 package com.example.learncards.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 
 import java.util.HashMap;
 
 public class ProfileFragment extends Fragment {
-    TextView nameToSet, emailToSet;
-    User usuario;
+
 
     @Nullable
     @Override
@@ -35,9 +34,9 @@ public class ProfileFragment extends Fragment {
         TextView userEmailText = view.findViewById(R.id.textUserEmail);
         TextView userIDText = view.findViewById(R.id.textUserID);
 
-        userNameText.setText("Username: " + (String) user.get("NAME"));
-        userEmailText.setText("Email: " + (String) user.get("EMAIL"));
-        userIDText.setText("User id:" +((long) user.get("ID")));
+        userNameText.setText((String) user.get("NAME"));
+        userEmailText.setText( (String) user.get("EMAIL"));
+        userIDText.setText("User ID:" +((long) user.get("ID")));
 
         Button alterarButton = view.findViewById(R.id.buttonAlterarCredenciais);
         alterarButton.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +46,26 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+        Button buttonInviteFriends = view.findViewById(R.id.buttonInviteFriends);
+        buttonInviteFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    //Cria o gerador do AlertDialog
+                    AlertDialog alerta;
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    //define o titulo
+                    builder.setTitle("not implemented");
+                    //define a mensagem
+                    builder.setMessage("Função ainda não implementada");
+                    //define um botão como positivo
+
+                    alerta = builder.create();
+                    alerta.show();
+            }
+        });
+
 
         return view;
     }
