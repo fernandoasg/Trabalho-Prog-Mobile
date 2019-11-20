@@ -11,11 +11,7 @@ import com.example.learncards.Entities.SubjectWithCards;
 import java.util.List;
 
 @Dao
-public interface SubjectDao {
-
-
-    @Insert
-    void insert(Subject subject);
+public interface SubjectDao extends BaseDao<Subject>{
 
     @Query("SELECT * FROM subject ORDER BY name DESC")
     List<Subject> getAllSubjects();

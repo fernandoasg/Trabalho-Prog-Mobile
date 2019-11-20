@@ -10,16 +10,7 @@ import com.example.learncards.Entities.UserSubject;
 import java.util.List;
 
 @Dao
-public interface UserSubjectDao {
-
-    @Insert
-    void insert(UserSubject userSubject);
-
-    @Update
-    void update(UserSubject userSubject);
-
-    @Delete
-    void delete(UserSubject userSubject);
+public interface UserSubjectDao extends BaseDao<UserSubject> {
 
     @Query("DELETE FROM user_subject")
     void deleteAllUserSubject();
