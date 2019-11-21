@@ -12,7 +12,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Pergunta 1"
+        android:text="@string/pergunta_titulo"
         android:textAlignment="center"
         android:textSize="15pt" />
 
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Aqui vai a pergunta"
-        android:textSize="20dp"
+        android:text="@string/aqui_vai_a_pergunta"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa A" />
+                android:text="@string/alternativa_a" />
 
             <RadioButton
                 android:id="@+id/answerB"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa B"
+                android:text="@string/alternativa_b"
                 android:textColor="@color/colorGray" />
 
             <RadioButton
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa C" />
+                android:text="@string/alternativa_c" />
 
             <RadioButton
                 android:id="@+id/answerD"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa D" />
+                android:text="@string/alternativa_d" />
 
             <RadioButton
                 android:id="@+id/answerE"
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:buttonTint="@color/colorPrimary"
-                android:text="Alternativa E" />
+                android:text="@string/alternativa_e" />
         </RadioGroup>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -88,7 +88,7 @@
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:background="@color/design_default_color_primary"
-        android:text="PRÓXIMA"
+        android:text="@string/pr_xima"
         android:textColor="@color/colorAccent" />
 
 </LinearLayout>
