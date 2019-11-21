@@ -161,6 +161,7 @@ public class QuestionsFragment extends Fragment {
             return true;
         }else{
             ShowResult("Você precisa escolher uma alternativa!");
+            nextFinishButton.setEnabled(true);
             return false;
         }
     }
@@ -174,31 +175,31 @@ public class QuestionsFragment extends Fragment {
             answerERadio.setTextColor(Color.BLACK);
         }else if(op == 'a'){
             if(certo){
-                answerARadio.setTextColor(Color.GREEN);
+                answerARadio.setTextColor(getResources().getColor(R.color.colorCardDone));
             }else{
                 answerARadio.setTextColor(Color.RED);
             }
         }else if(op == 'b'){
             if(certo){
-                answerBRadio.setTextColor(Color.GREEN);
+                answerBRadio.setTextColor(getResources().getColor(R.color.colorCardDone));
             }else{
                 answerBRadio.setTextColor(Color.RED);
             }
         }else if(op == 'c'){
             if(certo){
-                answerCRadio.setTextColor(Color.GREEN);
+                answerCRadio.setTextColor(getResources().getColor(R.color.colorCardDone));
             }else{
                 answerCRadio.setTextColor(Color.RED);
             }
         }else if(op == 'd'){
             if(certo){
-                answerDRadio.setTextColor(Color.GREEN);
+                answerDRadio.setTextColor(getResources().getColor(R.color.colorCardDone));
             }else{
                 answerDRadio.setTextColor(Color.RED);
             }
         }else if(op == 'e'){
             if(certo){
-                answerERadio.setTextColor(Color.GREEN);
+                answerERadio.setTextColor(getResources().getColor(R.color.colorCardDone));
             }else{
                 answerERadio.setTextColor(Color.RED);
             }

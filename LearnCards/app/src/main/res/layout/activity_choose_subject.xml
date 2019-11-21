@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/return_image_button"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/ic_return_foreground" />
 
     <LinearLayout

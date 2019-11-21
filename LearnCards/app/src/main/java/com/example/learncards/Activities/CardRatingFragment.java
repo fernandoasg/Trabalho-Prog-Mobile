@@ -1,14 +1,18 @@
 package com.example.learncards.Activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,6 +69,7 @@ public class CardRatingFragment extends Fragment {
                 CardsDone cardsDone = new CardsDone(numStars, userComment, userID, cardId);
                 cardsDoneViewModel.saveCardDone(cardsDone);
 
+                ShowResult("Aula conclúida! Parabéns!");
                 Intent i = new Intent(view.getContext(), HomeActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -72,5 +77,20 @@ public class CardRatingFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void ShowResult(String message){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) getView().findViewById(R.id.toast_layout_root));
+        ImageView image = layout.findViewById(R.id.toast_image);
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText(message);
+
+        Toast toast = new Toast(getView().getContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
 }

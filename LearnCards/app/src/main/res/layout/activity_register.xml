@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradientbackground"
     android:gravity="center"
     tools:context=".Activities.RegisterActivity">
 
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:autofillHints=""
+        android:textColor="@color/colorAccent"
         android:hint="@string/nome_register"
         android:inputType="text" />
 
@@ -31,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"
         android:hint="@string/email_register"
         android:autofillHints="" />
@@ -40,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
         android:hint="@string/senha_register"
         android:autofillHints="" />
@@ -49,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
         android:hint="@string/senha_de_novo_register"
         android:autofillHints="" />
