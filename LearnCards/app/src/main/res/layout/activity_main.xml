@@ -53,9 +53,8 @@
         android:id="@+id/openLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="160dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="160dp"
         android:background="@color/colorAccent"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
@@ -64,6 +63,7 @@
         android:textSize="10pt"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/openRegisterButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/openRegisterButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

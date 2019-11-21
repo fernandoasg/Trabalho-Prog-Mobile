@@ -12,6 +12,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
+        android:textColor="@color/colorGray"
         android:textSize="15pt"
         android:text="@string/nome_do_sub_tema"/>
 
@@ -21,8 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textColor="@color/colorGray"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="23sp"
         android:text="@string/descricao_titulo"/>
 
     <TextView
@@ -31,7 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textColor="@color/colorGray"
         android:layout_marginTop="5pt"
+        android:textSize="17sp"
         android:text="@string/descricao_texto"/>
 
     <TextView
@@ -40,10 +44,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/descriptionText"
         android:layout_marginLeft="15pt"
+        android:textColor="@color/colorGray"
         android:layout_marginRight="15pt"
         android:layout_marginTop="10pt"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="23sp"
         android:text="@string/aplicacao_titulo"/>
 
     <TextView
@@ -52,6 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textSize="17sp"
+        android:textColor="@color/colorGray"
         android:layout_marginTop="5pt"
         android:text="@string/aplicacao_texto"/>
 
@@ -61,7 +68,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
         android:background="@color/buttonColor"
-        android:layout_marginTop="10pt"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="20sp"
         android:layout_gravity="center"
         android:padding="10dp"
         android:text="@string/perguntas_button"/>
