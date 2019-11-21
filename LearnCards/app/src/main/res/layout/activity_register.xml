@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradientbackground"
     android:gravity="center"
     tools:context=".Activities.RegisterActivity">
 
@@ -15,38 +15,47 @@
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="#000000"
-        android:text="Crie sua conta e comece a aprender!"/>
+        android:text="@string/crie_sua_conta_e_comece_a_aprender"/>
 
     <EditText
         android:id="@+id/editNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="nome"/>
+        android:autofillHints=""
+        android:textColor="@color/colorAccent"
+        android:hint="@string/nome_register"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"
-        android:hint="email"/>
+        android:hint="@string/email_register"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="senha"/>
+        android:hint="@string/senha_register"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editSenhaConf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="senha de novo"/>
+        android:hint="@string/senha_de_novo_register"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/registerButton"
@@ -57,7 +66,7 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:layout_gravity="center"
-        android:text="CADASTRAR"
+        android:text="@string/cadastrar_button"
         android:textColor="@color/colorPrimary"
         android:textSize="10pt"
         android:textStyle="bold"/>

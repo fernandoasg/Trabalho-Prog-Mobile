@@ -85,6 +85,7 @@ public class ChooseSubjectActivity extends AppCompatActivity {
                             new UserSubject(userID, adapter.getSelected().get(i).getId()));
                 }
                 Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
             return null;

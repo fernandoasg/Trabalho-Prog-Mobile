@@ -31,8 +31,7 @@ public class CardsDone {
     @ColumnInfo(name = "card_fk")
     private long cardFk;
 
-    public CardsDone(long id, float rating, String ratingText, long userFk, long cardFk) {
-        this.id = id;
+    public CardsDone(float rating, String ratingText, long userFk, long cardFk) {
         this.rating = rating;
         this.ratingText = ratingText;
         this.userFk = userFk;

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
+    app:cardBackgroundColor="@color/colorAccent"
     app:cardCornerRadius="4dp">
 
     <RelativeLayout
@@ -16,14 +19,14 @@
             android:id="@+id/text_view_card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Card Title"
+            android:text="@string/card_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             />
         <TextView
             android:id="@+id/text_view_card_subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Card Subject"
+            android:text="@string/card_subject"
             android:layout_below="@id/text_view_card_title"/>
     </RelativeLayout>
 

@@ -19,6 +19,7 @@ import com.example.learncards.Entities.Card;
 import com.example.learncards.Entities.CardWithQuestions;
 import com.example.learncards.R;
 import com.example.learncards.ViewModel.CardViewModel;
+import com.example.learncards.ViewModel.CardsDoneViewModel;
 
 public class DoingCardActivity extends AppCompatActivity {
 
@@ -68,6 +69,7 @@ public class DoingCardActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(getBaseContext(), HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

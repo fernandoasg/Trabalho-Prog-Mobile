@@ -18,22 +18,23 @@
             android:layout_margin="30dp"
             android:text="@string/title_fragment_profile"
             android:textAlignment="center"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <ImageView
             android:id="@+id/Profile_Pic"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:layout_marginBottom="5dp"
-            app:srcCompat="@drawable/profile_pic" />
+            app:srcCompat="@drawable/profile_pic"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/textUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Nome do usuário"
-            android:textSize="30dp" />
+            android:text="@string/nome_do_usuario"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -47,7 +48,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:text="Email"
+            android:text="@string/email_image"
             android:textAlignment="center"
             app:srcCompat="@drawable/email_icon" />
 
@@ -58,7 +59,7 @@
             android:layout_marginLeft="43dp"
             android:layout_marginTop="25dp"
             android:layout_toRightOf="@id/Email"
-            android:text="Email do usuário"
+            android:text="@string/email_do_usuario"
             android:textSize="24dp" />
 
 
