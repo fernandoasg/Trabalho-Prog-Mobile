@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/buttonColor"
         android:text="@string/pr_xima"
         android:textColor="@color/colorAccent" />
 

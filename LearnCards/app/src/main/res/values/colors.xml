@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#66B1FD</color>
+    <color name="buttonColor">#FF457BEA</color>
+    <color name="colorPrimaryTransparent">#BFD6F7</color>
     <color name="colorCardDone">#35BD35</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FDFDFD</color>
+    <color name="almostWhite">#EEEEEE</color>
     <color name="transparent">#00000000</color>
     <color name="cardview_header">#7755ef</color>
     <color name="colorYellow">#FFEB3B</color>

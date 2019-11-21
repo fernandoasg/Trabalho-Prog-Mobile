@@ -15,7 +15,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="@color/colorAccent"
         android:text="@string/crie_sua_conta_e_comece_a_aprender"/>
 
     <EditText

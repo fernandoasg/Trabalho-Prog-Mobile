@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
+            android:textColor="@color/colorAccent"
             android:text="@string/title_fragment_profile"
             android:textAlignment="center"
             android:textSize="40sp" />
@@ -33,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:textColor="@color/almostWhite"
             android:text="@string/nome_do_usuario"
             android:textSize="30sp" />
 
@@ -105,13 +107,21 @@
                 android:layout_width="20dp"
                 android:layout_height="60dp"
                 android:layout_weight="0.5"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/buttonColor"
+                android:textColor="@color/colorAccent"
                 android:text="@string/alterar_credenciais" />
 
             <Button
                 android:id="@+id/buttonInviteFriends"
                 android:layout_width="20dp"
                 android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_weight="0.5"
+                android:background="@color/buttonColor"
+                android:textColor="@color/colorAccent"
                 android:text="@string/convidar_amigo" />
         </LinearLayout>
     </RelativeLayout>

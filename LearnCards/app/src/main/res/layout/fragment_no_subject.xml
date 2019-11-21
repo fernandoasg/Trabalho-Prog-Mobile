@@ -16,7 +16,7 @@
         android:layout_below="@+id/textNoSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/buttonColor"
         android:textColor="@color/colorAccent"
         android:layout_marginHorizontal="40dp"
         android:text="@string/botao_escolher_assuntos"

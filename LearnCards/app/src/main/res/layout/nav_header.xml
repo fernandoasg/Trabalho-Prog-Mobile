@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/gradientbackground"
     android:gravity="bottom"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -21,7 +21,7 @@
         android:paddingTop="8dp"
         android:layout_marginStart="20dp"
         android:text="@string/nome_register"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorAccent"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"/>
 

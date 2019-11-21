@@ -15,7 +15,7 @@
         android:textSize="30sp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textColor="#000000"
+        android:textColor="@color/colorAccent"
         android:text="@string/alterar_credenciais"/>
 
     <EditText
@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:hint="@string/novo_nome_de_usuario"/>
 
     <EditText
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"
         android:hint="@string/email"/>
 
@@ -38,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
         android:hint="@string/senha"/>
 
@@ -46,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
         android:hint="@string/confirmar_senha"/>
 

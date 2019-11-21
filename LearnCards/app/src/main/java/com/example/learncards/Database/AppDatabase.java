@@ -82,7 +82,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            userDao.insert(new User("teste", "123@gmail.com", "123"));
+            userDao.insert(new User("Administrador", "admin@gmail.com", "123"));
             subjectDao.insert(new Subject("Programação para Dispositivos Móveis", "Notificação"));
 
             subjectDao.insert(new Subject("Biologia", "Sistema Cardiovascular"));

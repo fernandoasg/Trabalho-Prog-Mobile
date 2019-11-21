@@ -6,15 +6,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:padding="10dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
     android:gravity="center_horizontal"
-    android:background="@color/colorPrimary"
-    android:layout_height="match_parent">
+    android:background="@drawable/custom_toast_shape"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/toast_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         app:srcCompat="@drawable/graduate"/>
 
     <TextView

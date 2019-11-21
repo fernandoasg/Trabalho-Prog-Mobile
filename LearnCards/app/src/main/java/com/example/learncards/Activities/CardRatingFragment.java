@@ -69,7 +69,7 @@ public class CardRatingFragment extends Fragment {
                 CardsDone cardsDone = new CardsDone(numStars, userComment, userID, cardId);
                 cardsDoneViewModel.saveCardDone(cardsDone);
 
-                ShowResult("Aula conclúida! Parabéns!");
+                ShowResult("Aula conclúida!");
                 Intent i = new Intent(view.getContext(), HomeActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -89,7 +89,7 @@ public class CardRatingFragment extends Fragment {
 
         Toast toast = new Toast(getView().getContext());
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
     }
