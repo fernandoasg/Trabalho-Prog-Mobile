@@ -7,21 +7,25 @@
         android:id="@+id/lessonSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
         android:textAlignment="center"
+        android:textColor="@color/colorGray"
         android:textSize="15pt"
-        android:text="Nome do sub-tema"/>
+        android:text="@string/nome_do_sub_tema"/>
 
     <TextView
         android:id="@+id/descriptionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/lessonSubject"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textColor="@color/colorGray"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Descrição"/>
+        android:textSize="23sp"
+        android:text="@string/descricao_titulo"/>
 
     <TextView
         android:id="@+id/descriptionText"
@@ -29,8 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textColor="@color/colorGray"
         android:layout_marginTop="5pt"
-        android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
+        android:textSize="17sp"
+        android:text="@string/descricao_texto"/>
 
     <TextView
         android:id="@+id/applicationTitle"
@@ -38,11 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/descriptionText"
         android:layout_marginLeft="15pt"
+        android:textColor="@color/colorGray"
         android:layout_marginRight="15pt"
         android:layout_marginTop="10pt"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Aplicação"/>
+        android:textSize="23sp"
+        android:text="@string/aplicacao_titulo"/>
 
     <TextView
         android:id="@+id/applicationText"
@@ -50,17 +57,21 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15pt"
         android:layout_marginRight="15pt"
+        android:textSize="17sp"
+        android:textColor="@color/colorGray"
         android:layout_marginTop="5pt"
-        android:text="Nunc tempor finibus ullamcorper. Proin sodales malesuada auctor. Ut a dolor elementum nunc imperdiet consectetur eget in arcu.  "/>
+        android:text="@string/aplicacao_texto"/>
 
     <Button
         android:id="@+id/questionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
-        android:background="@color/design_default_color_primary"
-        android:layout_marginTop="10pt"
+        android:background="@color/buttonColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="20sp"
         android:layout_gravity="center"
         android:padding="10dp"
-        android:text="PERGUNTAS"/>
+        android:text="@string/perguntas_button"/>
 </LinearLayout>

@@ -9,21 +9,24 @@
 
     <ImageView
         android:id="@+id/return_image_button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/ic_return_foreground" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_weight="4"
+            android:autofillHints=""
+            android:inputType="text" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -55,10 +58,10 @@
             android:id="@+id/btnConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/buttonColor"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
-            android:text="CONFIRMAR"
+            android:text="@string/confirmar_button"
             android:layout_weight="-2"
             android:textColor="@color/colorAccent"
             android:textSize="10pt"/>

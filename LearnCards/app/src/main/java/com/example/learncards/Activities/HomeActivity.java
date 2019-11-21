@@ -5,6 +5,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Debug;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,11 +18,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.learncards.Database.AppDatabase;
 import com.example.learncards.Entities.Subject;
+import com.example.learncards.Entities.User;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 import com.example.learncards.ViewModel.SubjectViewModel;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -47,6 +52,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer = findViewById(R.id.home_drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        HashMap<String, Object> usuario = sessionManager.getUser();
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView nome = headerView.findViewById(R.id.drawerNomeUsuario);
+        nome.setText((String)usuario.get("NAME"));
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);

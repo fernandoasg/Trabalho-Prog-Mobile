@@ -1,5 +1,6 @@
 package com.example.learncards.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,13 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.learncards.Adapters.CardAdapter;
 import com.example.learncards.Entities.CardWithQuestions;
+import com.example.learncards.Entities.CardsDone;
 import com.example.learncards.Entities.Subject;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 import com.example.learncards.ViewModel.CardViewModel;
+import com.example.learncards.ViewModel.CardsDoneViewModel;
 import com.example.learncards.ViewModel.SubjectViewModel;
 
 import java.util.ArrayList;
@@ -28,7 +32,7 @@ public class CardsListFragment extends Fragment {
 
     private List<CardWithQuestions> userCards;
     private SessionManager sessionManager;
-
+    private ImageButton chooseSubjectsPlusButton;
 
     @Nullable
     @Override
@@ -38,16 +42,33 @@ public class CardsListFragment extends Fragment {
         userCards = new ArrayList<>();
 
         RecyclerView recyclerView = view.findViewById(R.id.recicler_view_cards);
+        chooseSubjectsPlusButton = view.findViewById(R.id.chooseSubjectsPlusButton);
         sessionManager = new SessionManager(getActivity().getApplicationContext());
         long userID = (long) sessionManager.getUser().get("ID");
 
         SubjectViewModel subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
         List<Subject> userSubjects = subjectViewModel.getUserSubjects(userID);
 
+        CardsDoneViewModel cardsDoneViewModel = ViewModelProviders.of(this).get(CardsDoneViewModel.class);
+        List<CardsDone> cardsDone = cardsDoneViewModel.getAllCardsDone(userID);
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+
         CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
         for(Subject subject : userSubjects){
             List<CardWithQuestions> cards = cardViewModel.getCardsFromMySubjects(subject.getId());
             for(CardWithQuestions card : cards){
+                card.done = false;
+                long idCard = card.card.getId();
+                for(CardsDone cd : cardsDone){
+                    if(idCard == cd.getCardFk()){
+                        card.done = true;
+                        break;
+                    }
+                }
                 card.card.setSubjectName(subject.getName());
                 userCards.add(card);
             }
@@ -59,7 +80,14 @@ public class CardsListFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
+        chooseSubjectsPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChooseSubjectActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
-
 }

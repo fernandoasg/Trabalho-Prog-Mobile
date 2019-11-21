@@ -7,10 +7,14 @@
         android:id="@+id/lessonSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorGray"
         android:textAlignment="center"
         android:textSize="15pt"
-        android:text="Avaliação"/>
+        android:text="@string/avaliacao_tilulo"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -28,24 +32,29 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10pt"
         android:layout_marginRight="10pt"
+        android:textColor="@color/colorGray"
         android:layout_marginTop="5pt"
         android:textSize="10pt"
-        android:text="Comentário:"/>
+        android:text="@string/comentario_texto"/>
 
     <EditText
+        android:id="@+id/comentario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10pt"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginStart="10pt"
+        android:layout_marginEnd="20dp"
+        android:autofillHints=""
+        android:inputType="textAutoCorrect" />
 
     <Button
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/buttonColor"
         android:layout_marginTop="10pt"
         android:layout_gravity="center"
+        android:textSize="20sp"
         android:padding="10dp"
-        android:text="TERMINAR"/>
+        android:text="@string/terminar_button"/>
 </LinearLayout>

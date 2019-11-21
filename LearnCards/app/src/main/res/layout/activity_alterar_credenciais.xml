@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradientbackgroundregularactivity"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Activities.ChooseSubjectActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:gravity="center"
-        android:textColor="#000000"
-        android:text="Alterar Credenciais"/>
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:text="@string/alterar_credenciais"/>
 
     <EditText
         android:id="@+id/editNomeAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Novo nome de usuário"/>
+        android:textColor="@color/colorAccent"
+        android:hint="@string/novo_nome_de_usuario"/>
 
     <EditText
         android:id="@+id/editEmailAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"
-        android:hint="email"/>
+        android:hint="@string/email"/>
 
     <EditText
         android:id="@+id/editSenhaAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="senha"/>
+        android:hint="@string/senha"/>
 
     <EditText
         android:id="@+id/editSenhaConfAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="senha de novo"/>
+        android:hint="@string/confirmar_senha"/>
 
     <Button
         android:id="@+id/buttonSalvarAlteracoes"
@@ -57,7 +62,7 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:layout_gravity="center"
-        android:text="Salvar alterações"
+        android:text="@string/salvar_alteracoes"
         android:textColor="@color/colorPrimary"
         android:textSize="10pt"
         android:textStyle="bold"/>

@@ -82,7 +82,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            userDao.insert(new User("teste", "123@gmail.com", "123"));
+            userDao.insert(new User("Administrador", "admin@gmail.com", "123"));
+
             subjectDao.insert(new Subject("Programação para Dispositivos Móveis", "Notificação"));
 
             subjectDao.insert(new Subject("Biologia", "Sistema Cardiovascular"));
@@ -101,22 +102,29 @@ public abstract class AppDatabase extends RoomDatabase {
             subjectDao.insert(new Subject("Filosofia", "Marxismo II"));
 
             cardDao.insert(new Card(1, 1, "O que é uma Notificação",
-                    "Uma notificação é uma mensagem que pode ser exibida ao usuário fora da IU normal do aplicativo\n" +
-                            "A notificação aparece primeiro como um ícone na área de notificação\n" +
-                            "Para ver os detalhes da notificação, o usuário abre a gaveta de notificação\n" +
-                            "A área de notificação e a gaveta de notificação podem ser visualizadas pelo usuário a qualquer momento\n",
-                    "Podemos uma notificação para lembrar os usuários de fazer algo, para avisar que algo aconteceu, como o recebimento de um e-mail ou uma promoção ativa no aplicativo", 0));
+                    "Uma notificação é uma mensagem que pode ser exibida ao usuário fora da IU normal do aplicativo.\n" +
+                            "A notificação aparece primeiro como um ícone na área de notificação.\n" +
+                            "Para ver os detalhes da notificação, o usuário abre a gaveta de notificação.\n" +
+                            "A área de notificação e a gaveta de notificação podem ser visualizadas pelo usuário a qualquer momento.\n",
+                    "Podemos usar uma notificação para lembrar os usuários de fazer algo, para avisar que algo aconteceu, como " +
+                            "o recebimento de um e-mail ou uma promoção ativa no aplicativo.", 0));
             cardDao.insert(new Card(2, 1, "Ações de Notificação",
-                    "Deve-se adicionar pelo menos uma ação à notificação\n" +
-                            "Uma ação permite que os usuários direcionem-se diretamente da notificação para uma Activity\n" +
-                            "Onde podem visualizar um ou mais eventos ou realizar outros trabalhos\n" +
-                            "Deve-se sempre definir a ção que será ativada quando o usuário clicar na notificação\n" +
-                            "Geralmente, esta ação abre uma Activity no aplicativo\n",
-                    "Caso o usuário receba uma notificação de um email que foi recebido, a ação de clicar na notificação pode, por exemplo, abrir o aplicativo de email na Activity em que é mostrado o email com mais detalhes", 0));
-            cardDao.insert(new Card(3, 2, "Sistema Cardiovascular ENEM", "Perguntas sobre o sistema cardiovascular p/ o ENEM", "contexto ?", 0));
-            cardDao.insert(new Card(4, 3, "Espécies reino animal", "Perguntas espécies do reino animal", "contexto ?", 0));
-            cardDao.insert(new Card(5, 4, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 0));
-            cardDao.insert(new Card(6, 5, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 0));
+                    "Deve-se adicionar pelo menos uma ação à notificação.\n" +
+                            "Uma ação permite que os usuários direcionem-se diretamente da notificação para uma Activity.\n" +
+                            "Onde podem visualizar um ou mais eventos ou realizar outros trabalhos.\n" +
+                            "Deve-se sempre definir a ção que será ativada quando o usuário clicar na notificação.\n" +
+                            "Geralmente, esta ação abre uma Activity no aplicativo.\n",
+                    "Caso o usuário receba uma notificação de um email que foi recebido, a ação de clicar " +
+                            "na notificação pode, por exemplo, abrir o aplicativo de email na Activity em que é " +
+                            "mostrado o email com mais detalhes.", 0));
+            cardDao.insert(new Card(3, 1, "Como usar notificações",
+                     "Aqui vai a descrição a da aula",
+                    "Aqui vai uma forma de usar", 0));
+            cardDao.insert(new Card(4, 2, "Sistema Cardiovascular ENEM", "Perguntas sobre o sistema cardiovascular p/ o ENEM", "contexto ?", 0));
+            cardDao.insert(new Card(5, 3, "Espécies reino animal", "Perguntas espécies do reino animal", "contexto ?", 0));
+            cardDao.insert(new Card(6, 4, "Gravidade questões práticas", "Perguntas sobre a lei de newton mais famosa !", "contexto ?", 0));
+            cardDao.insert(new Card(7, 5, "Resistencia do Ar, ENEM", "Perguntas sobre a resistencia do ar p/ o ENEM", "contexto ?", 0));
+
 
             questionDao.insert(new Question(1, 1, "O que é uma Notificação?",
                     "É uma mensagem que pode ser exibida ao usuário fora da IU do aplicativo",
