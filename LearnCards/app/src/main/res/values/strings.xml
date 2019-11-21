@@ -47,11 +47,13 @@
     <string name="crie_sua_conta_e_comece_a_aprender">Crie sua conta e comece a aprender!</string>
     <string name="cadastrar_button">CADASTRAR</string>
     <string name="nome_register">nome</string>
-    <string name="email_register">email</string>
-    <string name="senha_register">senha</string>
     <string name="senha_de_novo_register">senha de novo</string>
     <string name="confirmar_button">CONFIRMAR</string>
     <string name="esqueceu_a_senha">Esqueceu a senha?</string>
     <string name="email">email</string>
     <string name="senha">senha</string>
+    <string name="salvar_alteracoes">Salvar alterações</string>
+    <string name="confirmar_senha">confirmar senha</string>
+    <string name="novo_nome_de_usuario">novo nome de usuário</string>
+    <string name="alterar_credenciais">Alterar Credenciais</string>
 </resources>
