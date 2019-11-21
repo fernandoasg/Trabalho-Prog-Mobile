@@ -35,6 +35,15 @@ public class CardsDoneRepository {
         return allCardsDone;
     }
 
+    public List<CardsDone> getAllCardsDone(long userId){
+        try{
+            return new GetAllCardsDoneTask().execute(userId).get();
+        }catch(ExecutionException | InterruptedException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private static class InsertCardDoneAsyncTask extends AsyncTask<CardsDone, Void, Void> {
         private CardsDoneDao cardsDoneDao;
         private InsertCardDoneAsyncTask(CardsDoneDao cardsDoneDao){
@@ -59,4 +68,12 @@ public class CardsDoneRepository {
             return cardsDoneDao.getAllCardsDoneOfUser(id[0]);
         }
     }
+
+    private class GetAllCardsDoneTask extends AsyncTask<Long, Void, List<CardsDone>>{
+        @Override
+        protected List<CardsDone> doInBackground(Long... userId){
+            return cardsDoneDao.getAllCardsDoneOfUser(userId[0]);
+        }
+    }
+
 }

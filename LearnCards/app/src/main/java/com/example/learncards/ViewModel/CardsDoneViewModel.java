@@ -26,4 +26,8 @@ public class CardsDoneViewModel extends AndroidViewModel {
     public void saveCardDone(CardsDone cardsDone){
         repository.insert(cardsDone);
     }
+
+    public List<CardsDone> getAllCardsDone(long userID) {
+        return repository.getAllCardsDone(userID);
+    }
 }

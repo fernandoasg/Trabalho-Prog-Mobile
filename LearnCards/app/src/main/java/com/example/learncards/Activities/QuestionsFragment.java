@@ -122,11 +122,10 @@ public class QuestionsFragment extends Fragment {
         nextFinishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nextFinishButton.setEnabled(false);
                 boolean canContinue = checkAnswer();
 
                 if(canContinue){
-                    nextFinishButton.setActivated(false);
-
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -234,7 +233,7 @@ public class QuestionsFragment extends Fragment {
         }
         trocaCor('f', true);
         radioGroup.clearCheck();
-        nextFinishButton.setActivated(true);
+        nextFinishButton.setEnabled(true);
 
         loadQuestions();
     }

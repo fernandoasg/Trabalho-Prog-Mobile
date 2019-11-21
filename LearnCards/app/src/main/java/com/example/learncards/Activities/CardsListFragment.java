@@ -17,10 +17,12 @@ import android.widget.ImageButton;
 
 import com.example.learncards.Adapters.CardAdapter;
 import com.example.learncards.Entities.CardWithQuestions;
+import com.example.learncards.Entities.CardsDone;
 import com.example.learncards.Entities.Subject;
 import com.example.learncards.R;
 import com.example.learncards.SessionManager;
 import com.example.learncards.ViewModel.CardViewModel;
+import com.example.learncards.ViewModel.CardsDoneViewModel;
 import com.example.learncards.ViewModel.SubjectViewModel;
 
 import java.util.ArrayList;
@@ -47,10 +49,26 @@ public class CardsListFragment extends Fragment {
         SubjectViewModel subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
         List<Subject> userSubjects = subjectViewModel.getUserSubjects(userID);
 
+        CardsDoneViewModel cardsDoneViewModel = ViewModelProviders.of(this).get(CardsDoneViewModel.class);
+        List<CardsDone> cardsDone = cardsDoneViewModel.getAllCardsDone(userID);
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+        System.out.println(cardsDone.size());
+
         CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
         for(Subject subject : userSubjects){
             List<CardWithQuestions> cards = cardViewModel.getCardsFromMySubjects(subject.getId());
             for(CardWithQuestions card : cards){
+                card.done = false;
+                long idCard = card.card.getId();
+                for(CardsDone cd : cardsDone){
+                    if(idCard == cd.getCardFk()){
+                        card.done = true;
+                        break;
+                    }
+                }
                 card.card.setSubjectName(subject.getName());
                 userCards.add(card);
             }
