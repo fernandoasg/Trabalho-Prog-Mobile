@@ -56,4 +56,9 @@
     <string name="confirmar_senha">confirmar senha</string>
     <string name="novo_nome_de_usuario">novo nome de usuário</string>
     <string name="alterar_credenciais">Alterar Credenciais</string>
+    <string name="cartoes">Cartões</string>
+    <string name="perfil">Perfil</string>
+    <string name="sair">Sair</string>
+    <string name="id_do_usu_ario">id do usuário</string>
+    <string name="convidar_amigo">Convidar amigo</string>
 </resources>

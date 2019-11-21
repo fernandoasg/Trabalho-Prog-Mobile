@@ -11,23 +11,19 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:src="@drawable/flashcard"
-        android:contentDescription="@string/nav_user_photo" />
+        android:contentDescription="@string/nav_user_photo"
+        android:layout_marginStart="20dp"/>
+
     <TextView
         android:id="@+id/drawerNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
+        android:layout_marginStart="20dp"
         android:text="@string/nome_register"
         android:textColor="@color/colorGray"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/drawerEmailUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorGray"
-        android:text="@string/email"
-        android:textSize="20sp"/>
 
 </LinearLayout>

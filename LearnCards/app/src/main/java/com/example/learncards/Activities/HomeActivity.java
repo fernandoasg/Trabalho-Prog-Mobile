@@ -59,11 +59,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         TextView nome = headerView.findViewById(R.id.drawerNomeUsuario);
         nome.setText((String)usuario.get("NAME"));
-        TextView email = headerView.findViewById(R.id.drawerEmailUsuario);
-        email.setText((String)usuario.get("EMAIL"));
-
-
-
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,

@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:autofillHints=""
         android:textColor="@color/colorAccent"
         android:hint="@string/nome_register"
         android:inputType="text" />
@@ -35,8 +34,7 @@
         android:layout_margin="20dp"
         android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"
-        android:hint="@string/email"
-        android:autofillHints="" />
+        android:hint="@string/email"/>
 
     <EditText
         android:id="@+id/editSenha"
@@ -45,8 +43,7 @@
         android:layout_margin="20dp"
         android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="@string/senha"
-        android:autofillHints="" />
+        android:hint="@string/senha"/>
 
     <EditText
         android:id="@+id/editSenhaConf"
@@ -55,8 +52,7 @@
         android:layout_margin="20dp"
         android:textColor="@color/colorAccent"
         android:inputType="textPassword"
-        android:hint="@string/confirmar_senha"
-        android:autofillHints="" />
+        android:hint="@string/confirmar_senha"/>
 
     <Button
         android:id="@+id/registerButton"
@@ -71,6 +67,4 @@
         android:textColor="@color/colorPrimary"
         android:textSize="10pt"
         android:textStyle="bold"/>
-
-
 </LinearLayout>
