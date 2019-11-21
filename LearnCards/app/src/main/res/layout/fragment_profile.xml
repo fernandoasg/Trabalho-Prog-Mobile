@@ -46,7 +46,7 @@
             android:id="@+id/Email"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:text="@string/email_image"
             android:textAlignment="center"
@@ -56,11 +56,11 @@
             android:id="@+id/textUserEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
+            android:layout_marginStart="43dp"
             android:layout_marginTop="25dp"
-            android:layout_toRightOf="@id/Email"
+            android:layout_toEndOf="@id/Email"
             android:text="@string/email_do_usuario"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
 
         <LinearLayout
@@ -76,7 +76,7 @@
                 android:id="@+id/userID"
                 android:layout_width="157dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="0.5"
                 android:text="@string/ID"
@@ -86,10 +86,10 @@
                 android:id="@+id/textUserID"
                 android:layout_width="157dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="id do usuário"
+                android:text="@string/id_do_usu_ario"
                 android:textSize="15pt" />
         </LinearLayout>
 
@@ -105,14 +105,14 @@
                 android:layout_width="20dp"
                 android:layout_height="60dp"
                 android:layout_weight="0.5"
-                android:text="Alterar Credenciais" />
+                android:text="@string/alterar_credenciais" />
 
             <Button
                 android:id="@+id/buttonInviteFriends"
                 android:layout_width="20dp"
                 android:layout_height="60dp"
                 android:layout_weight="0.5"
-                android:text="Convidar amigo" />
+                android:text="@string/convidar_amigo" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
